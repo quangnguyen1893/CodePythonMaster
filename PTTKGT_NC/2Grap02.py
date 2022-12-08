@@ -1,3 +1,18 @@
+# Có n hòn đảo được đánh số từ 1 đến n. Một số cặp đảo được đánh nối với nhau bằng các cây cầu 2 chiều.
+# Minh Minh đứng ở hòn đảo thứ 1 và cô ấy muốn đi đến hòn đảo thứ n. Tính số lượng cây cầu ít nhất mà cô ấy cần phải đi qua để có thể đến được đảo thứ n.
+# Đầu vào:
+# Dòng đầu tiên là T, số lượng test cases.
+# Dòng đầu tiên của mỗi test case là 2 số nguyên n, m cách nhau khoảng trắng - số lượng đảo và tổng số cây cầu.
+# m dòng kế tiếp, mỗi dòng là cặp số nguyên x, y cách nhau khoảng trắng - có cầu nối giữa đão và đảo y.
+# Đầu ra:
+# Mỗi test case được in trên 1 dòng là một số nguyên là số lượng cây cầu ít nhất cần tìm
+# Chú ý:
+# Bạn có thể an tâm rằng dữ liệu đầu vào luôn hợp lệ
+# Ràng buộc
+# T=10
+# 1 <= n <= 104
+# 1 <= m <=  105
+# 1 <= x,y <= n
 class Graph_structure:
    def __init__(self, V):
       self.V = V

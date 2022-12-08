@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 # print(rows)
 
 
-text_file = open("ex1data1.txt", "r")
+text_file = open("CoSoToanChoTinHoc/ex1data1.txt", "r")
 lines = text_file.readlines() #Đọc tất cả các hàng
 #chuyển toàn bộ nội dung file thành numpy.array
 data = np.array([[float(x) for x in line.split(",")] for line in lines])
