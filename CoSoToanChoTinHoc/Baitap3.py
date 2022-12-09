@@ -6,3 +6,12 @@
 # a.	Mô hình hoá về bài toán tối ưu
 # b.	Giải bài toán trên bằng phương pháp Larange
 # c.	Giải bằng thư viện CVXOPT
+import cvxopt
+import numpy as np
+P = cvxopt.matrix(np.array([[10.0, 0.0],[0.0, 14]]))
+q = cvxopt.matrix(np.array([0.0, 0]))
+A = cvxopt.matrix(np.array([[1.0, 1]]))
+b = cvxopt.matrix(100.0)
+result = cvxopt.solvers.qp(P, q, A=A, b=b)
+y= result['x']
+print(y)
