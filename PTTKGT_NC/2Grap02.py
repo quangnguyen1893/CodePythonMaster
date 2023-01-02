@@ -13,45 +13,58 @@
 # 1 <= n <= 104
 # 1 <= m <=  105
 # 1 <= x,y <= n
-class Graph_structure:
-   def __init__(self, V):
-      self.V = V
-      self.adj = [[] for i in range(V)]
+# Python 3 program for the above approach
 
-   def DFS_Utility(self, temp, v, visited):
-      visited[v] = True
-      temp.append(v)
-      for i in self.adj[v]:
-         if visited[i] == False:
-            temp = self.DFS_Utility(temp, i, visited)
-      return temp
+def add_edge(adj, src, dest):
+   adj[src].append(dest)
+   adj[dest].append(src)
 
-   def add_edge(self, v, w):
-      self.adj[v].append(w)
-      self.adj[w].append(v)
 
-   def find_connected_components(self):
-      visited = []
-      connected_comp = []
-      for i in range(self.V):
-         visited.append(False)
-      for v in range(self.V):
-         if visited[v] == False:
-            temp = []
-            connected_comp.append(self.DFS_Utility(temp, v, visited))
-      return connected_comp
+def BFS(adj, src, dest, v, pred, dist):
+   queue = []
+   visited = [False for i in range(v)]
+   for i in range(v):
+      dist[i] = 1000000
+      pred[i] = -1
+   visited[src] = True
+   dist[src] = 0
+   queue.append(src)
 
-my_instance = Graph_structure(6)
-my_instance.add_edge(1, 0)
-my_instance.add_edge(2, 3)
-my_instance.add_edge(3, 4)
-my_instance.add_edge(5, 0)
-# print("There are 6 edges. They are : ")
-# print("1-->0")
-# print("2-->3")
-# print("3-->4")
-# print("5-->0")
+   while (len(queue) != 0):
+      u = queue[0]
+      queue.pop(0)
+      for i in range(len(adj[u])):
+         if (visited[adj[u][i]] == False):
+            visited[adj[u][i]] = True
+            dist[adj[u][i]] = dist[u] + 1
+            pred[adj[u][i]] = u
+            queue.append(adj[u][i])
+            if (adj[u][i] == dest):
+               return True
+   return False
 
-connected_comp = my_instance.find_connected_components()
-print("The connected components are...")
-print(connected_comp)
+
+def printShortestDistance(adj, s, dest, v):
+   pred = [0 for i in range(v)]
+   dist = [0 for i in range(v)]
+   if (BFS(adj, s, dest, v, pred, dist) == False):
+      print("None")
+   path = []
+   crawl = dest
+   path.append(crawl)
+
+   while (pred[crawl] != -1):
+      path.append(pred[crawl])
+      crawl = pred[crawl]
+   print(str(dist[dest]))
+
+
+if __name__ == '__main__':
+   T = int(input())
+   for i in range(T):
+      n, m = input().split()
+      adj = [[] for i in range(int(n))]
+      for j in range(int(m)):
+         x, y = input().split()
+         add_edge(adj, int(x) - 1, int(y) - 1)
+      printShortestDistance(adj, 0, int(n) - 1, int(n))

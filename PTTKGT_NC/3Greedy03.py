@@ -13,3 +13,35 @@
 # Ràng buộc
 # 1<=  wi <= 106
 # 1 <=n <= 105
+
+import heapq
+
+class node:
+    def __init__(self, freq, left=None, right=None):
+        self.freq = freq
+        self.left = left
+        self.right = right
+        self.huff = ''
+
+    def __lt__(self, nxt):
+        return self.freq < nxt.freq
+
+n = int(input())
+stimes = input(''.format(n)).split()
+freq = [int(st) for st in stimes]
+nodes = []
+for x in range(len(freq)):
+    heapq.heappush(nodes, node(-freq[x]))
+while len(nodes) > 1:
+    left = heapq.heappop(nodes)
+    right = heapq.heappop(nodes)
+    newNode = node(int(left.freq) - int(right.freq))
+    heapq.heappush(nodes, newNode)
+if len(nodes) == 1:
+    if newNode.freq < 0:
+        print(-newNode.freq)
+    else:
+        print(newNode.freq)
+
+
+

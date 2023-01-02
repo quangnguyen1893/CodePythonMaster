@@ -14,33 +14,31 @@
 # 1 <= n, m<= 1000
 # 1 <= x, y,x <= n
 
-from collections import defaultdict
-class Graph:
-    def __init__(self):
-        self.graph = defaultdict(list)
+def addEdge(adj, u, v):
+    adj[u].append(v)
+    adj[v].append(u)
 
-    def addEdge(self, u, v):
-        self.graph[u].append(v)
+def DFS(adj, visited, u):
+    visited[u] = 1
+    for i in range(len(adj[u])):
+        if visited[adj[u][i]] == 0:
+            DFS(adj, visited, adj[u][i])
 
-    def BFS(self, s):
-        visited = [False] * (max(self.graph) + 1)
-        queue = []
-        queue.append(s)
-        visited[s] = True
-        count = 0
-        while queue:
-            s = queue.pop(0)
+def getCount(adj, V, start):
+    count = 0
+    visited = [0 for i in range(V)]
+    DFS(adj, visited, start)
+
+    for u in range(V):
+        if visited[u] == 0:
             count += 1
-            for i in self.graph[s]:
-                if visited[i] == False:
-                    queue.append(i)
-                    visited[i] = True
-        return count
+    print(count)
 
-n,m = input().split()
-g = Graph()
-for i in range(int(m)):
-    x,y = input().split()
-    g.addEdge(int(x), int(y))
-h = int(input())
-print(int(n) - g.BFS(h))
+if __name__ == '__main__':
+    n, m = input().split()
+    adj = [[] for i in range(int(n))]
+    for i in range(int(m)):
+        x, y = input().split()
+        addEdge(adj, int(x)-1, int(y)-1)
+    h = int(input())
+    getCount(adj, int(n), h-1)
