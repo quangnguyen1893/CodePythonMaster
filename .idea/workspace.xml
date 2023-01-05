@@ -2,6 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6efccc89-24bf-49d9-b2c2-57b2fc55b928" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PTTKGT_NC/5DynamicPro03.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PTTKGT_NC/5DynamicPro04.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/CodeMaster.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CodeMaster.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PTTKGT_NC/5DynamicPro02.py" beforeDir="false" afterPath="$PROJECT_DIR$/PTTKGT_NC/5DynamicPro02.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
