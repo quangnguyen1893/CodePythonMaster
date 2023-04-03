@@ -101,4 +101,4 @@ for i in range(len(testSet)):
 rate = correct / float(len(testSet)) * 100.0
 print('Ti le du doan: ',rate)
 
-dang toi phan chuan hoa du lieu - co can chuan hoa label hay khong
+# dang toi phan chuan hoa du lieu - co can chuan hoa label hay khong
