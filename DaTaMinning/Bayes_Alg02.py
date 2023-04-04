@@ -66,20 +66,16 @@ def find_prob(outlook_val, temp_val, humidity_val, windy_val, play_val):
     else:
         p_windy_play_yes = 1
         p_windy_play_no = 1
-
     if  play_val != '':
         p_play_yes = pl.loc['coltotal']['yes']
         p_play_no = pl.loc['coltotal']['no']
     else:
         p_play_yes = 1
         p_play_no = 1
-
-    likelihood_yes = p_outlook_play_yes * p_temp_play_yes * p_humidity_play_yes * p_windy_play_yes * p_play_yes
-    likelihood_no = p_outlook_play_no * p_temp_play_no * p_humidity_play_no * p_windy_play_no * p_play_no
     if play_val == 'yes':
-        prob = likelihood_yes / (likelihood_yes + likelihood_no)
+        prob = p_outlook_play_yes * p_temp_play_yes * p_humidity_play_yes * p_windy_play_yes * p_play_yes
     else:
-        prob = likelihood_no / (likelihood_yes + likelihood_no)
+        prob = p_outlook_play_no * p_temp_play_no * p_humidity_play_no * p_windy_play_no * p_play_no
     return prob
 
 def pred_play(outlook_val, temp_val, humidity_val, windy_val):
@@ -93,11 +89,10 @@ def pred_play(outlook_val, temp_val, humidity_val, windy_val):
     else:
         print("Play: No")
 
-# pred_play('overcast', 'cool', 'high', 'False')
-# print('===================================')
-# pred_play('rainy', 'cool', 'high', 'False')
-# print('===================================')
-# pred_play('sunny', 'hot', 'normal', 'False')
+pred_play('overcast', 'cool', 'high', 'False')
 print('===================================')
-# pred_play('', 'hot', 'normal', 'False')
-pred_play('', 'cool', 'high', 'True')
+pred_play('rainy', 'cool', 'high', 'False')
+print('===================================')
+pred_play('sunny', 'hot', 'normal', 'False')
+print('===================================')
+pred_play('', 'hot', 'normal', 'False')

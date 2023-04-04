@@ -78,16 +78,16 @@ testSet = load_csv(fnTest)
 for i in range(len(trainSet[0]) - 1):
     str_column_to_float(trainSet, i)
 str_column_to_int(trainSet, len(trainSet[0]) - 1)
-trainS = [tple[:-1] for tple in trainSet]
-minmaxTrainset = dataset_minmax(trainS)
-normalize_dataset(trainS,minmaxTrainset)
+# trainS = [tple[:-1] for tple in trainSet]
+# minmaxTrainset = dataset_minmax(trainS)
+# normalize_dataset(trainS,minmaxTrainset)
 # Normolize Test set
 for i in range(len(testSet[0]) - 1):
     str_column_to_float(testSet, i)
 str_column_to_int(testSet, len(testSet[0]) - 1)
 labelActual = [tple[4] for tple in testSet]
-minmaxTestset = dataset_minmax(testSet)
-normalize_dataset(testSet,minmaxTestset)
+# minmaxTestset = dataset_minmax(testSet)
+# normalize_dataset(testSet,minmaxTestset)
 testSet = [tple[:-1] for tple in testSet]
 # Input k
 so_k = int(input("Nhập K: "))
