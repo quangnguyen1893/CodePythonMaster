@@ -70,8 +70,8 @@ def predict_classification(train, test_row, num_neighbors):
     prediction = max(set(output_values), key=output_values.count)
     return prediction
 # read data file
-fnTrain = 'data/iris/iris.trn'
-fnTest = 'data/iris/iris.tst'
+fnTrain = 'data/letter/let.trn'
+fnTest = 'data/letter/let.tst'
 trainSet = load_csv(fnTrain)
 testSet = load_csv(fnTest)
 # Normolize Train set
@@ -85,7 +85,8 @@ str_column_to_int(trainSet, len(trainSet[0]) - 1)
 for i in range(len(testSet[0]) - 1):
     str_column_to_float(testSet, i)
 str_column_to_int(testSet, len(testSet[0]) - 1)
-labelActual = [tple[4] for tple in testSet]
+labelActual = [tple[-1] for tple in testSet]
+# print(labelActual)
 # minmaxTestset = dataset_minmax(testSet)
 # normalize_dataset(testSet,minmaxTestset)
 testSet = [tple[:-1] for tple in testSet]
