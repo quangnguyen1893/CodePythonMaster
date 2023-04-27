@@ -49,3 +49,4 @@ for predic in gessSet:
     printPredic = predict_func(dataset, predic, so_k)
     print('Du doan cho phan tu',predic,'thuoc lop',printPredic, '\n')
 
+# test
