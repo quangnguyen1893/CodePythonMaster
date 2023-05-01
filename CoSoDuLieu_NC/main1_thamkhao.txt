@@ -1,0 +1,144 @@
+import java.io.File;
+
+import com.db4o.Db4oEmbedded;
+import com.db4o.ObjectContainer;
+import com.db4o.ObjectSet;
+import com.db4o.query.Predicate;
+import com.db4o.query.Query;
+
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		// 1. Xoá CSDL nếu CSDL đã có
+		new File("D:/NCHIEN/db4o/db4oExample.db4o").delete();
+		//2. Mở CSDL nếu đã có, ngược lại tạo mới và mở
+		ObjectContainer db = Db4oEmbedded.openFile("D:/NCHIEN/db4o/db4oExample.db4o");
+		//3. Thêm vào CSDL 7 đối tượng (Diem,20) (An,30) (Diem,18) (Phuc,30) (Tam,40) (Phuc,25) (Thu,40)
+		db.store(new Person("Diem",20));
+		db.store(new Person("An",30));
+		db.store(new Person("Diem",18));
+		db.store(new Person("Phuc",30));
+		db.store(new Person("Tam",40));
+		db.store(new Person("Phuc",25));
+		db.store(new Person("Thu",40));
+		// Truy vấn QBE
+		
+		// 4. Tìm những người tên Diễm 
+		System.out.println("-Tim nhung nguoi co ten Diem");
+		Person pD = new Person("Diem");
+		ObjectSet<Person> res = db.queryByExample(pD);
+		for(Person i : res) {
+			System.out.println(i.toString());
+		}
+		 //	...		
+		System.out.println("---------------------");
+		// 5. Tìm những người có tuổi 30  	
+		System.out.println("-Tim nhung nguoi co tuoi 30 ");
+		Person pS = new Person();
+		pS.setAge(30);
+		ObjectSet<Person> res30 = db.queryByExample(pS);
+		for(Person i : res30) {
+			System.out.println(i.toString());
+		}
+		//...	 
+		System.out.println("---------------------");
+		// 6. Tìm tất cả mọi người sử dụng thuộc tính class 
+		System.out.println("-Tim tat ca su dung class");
+			// ...		
+		ObjectSet<Person> resClass = db.queryByExample(Person.class);
+		for(Person i : resClass) {
+			System.out.println(i.toString());
+		}		
+		System.out.println("---------------------");
+		
+		// 7. Tìm tất cả mọi người sử dụng hàm tạo rỗng
+		System.out.println("-Tim tat ca su dung hàm tạo rỗng");
+		ObjectSet<Person> resNull = db.queryByExample(new Person(null));
+		for(Person i : resNull) {
+			System.out.println(i.toString());
+		}	
+			//...
+		System.out.println("---------------------");
+		//Native Query
+		System.out.println("----------NATIVE-----------");		
+		System.out.println("8. Tìm tất cả người tuổi từ 20 đến 30");
+		ObjectSet<Person> res8 = db.query(new Predicate<Person>(){
+			public boolean match(Person per) {
+				return per.getAge() >= 20 && per.getAge() <= 30;
+			}
+		});
+		for (Person i: res8) {
+			System.out.println(i.toString());
+		}
+		System.out.println("---------------------");
+			 
+		System.out.println("9.Tìm tất cả người tên Diễm và có tuổi 20");
+		ObjectSet<Person> res9 = db.query(new Predicate<Person>(){
+			public boolean match(Person per) {
+				return per.getAge()==20 && per.getName().equals("Diem");
+			}
+		});
+		for (Person i: res9) {
+			System.out.println(i.toString());
+		}    
+		//SODA
+		System.out.println("----------SODA-----------");
+		System.out.println("----------10. SODA: tat ca moi nguoi");
+		Query query = db.query();
+		query.constrain(Person.class);
+		ObjectSet<Person> res10 = query.execute();
+		for (Person i: res10) {
+			System.out.println(i.toString());
+		}    
+		System.out.println("----------11. SODA: tat ca moi nguoi: sap xep theo ten-----------");
+		Query query11 = db.query();
+		query11.constrain(Person.class);
+		query11.descend("name").orderAscending();
+		ObjectSet<Person> res11 = query11.execute();
+		for (Person i: res11) {
+			System.out.println(i.toString());
+		}
+		
+		
+		System.out.println("----------12. SODA: Nhung nguoi ten Diem-----------");
+		Query query12 = db.query();
+		query12.constrain(Person.class);
+		query12.descend("name").constrain("Diem").contains();
+		ObjectSet<Person> res12 = query12.execute();
+		for (Person i: res12) {
+			System.out.println(i.toString());
+		}
+				
+		System.out.println("----------13. SODA: Nhung nguoi khac 30 tuoi -----------");
+		Query query13 = db.query();
+		query13.constrain(Person.class);
+		query13.descend("age").constrain(30).not();
+		ObjectSet<Person> res13 = query13.execute();
+		for (Person i: res13) {
+			System.out.println(i.toString());
+		}	 
+		System.out.println("----------14. SODA: Nhung nguoi tuoi tu 20 den 30 tuoi -----------");
+		Query query14 = db.query();
+		query14.constrain(Person.class);
+		query14.descend("age").constrain(20-1).greater().and(
+			query14.descend("age").constrain(30+1).smaller()
+		)
+		;
+		ObjectSet<Person> res14 = query14.execute();
+		for (Person i: res14) {
+			System.out.println(i.toString());
+		}			 
+		System.out.println("----------15. SODA: Nhung nguoi ten bat dau bang T -----------");
+		Query query15 = db.query();
+		query15.constrain(Person.class);
+		query15.descend("name").constrain("T").startsWith(true);
+		ObjectSet<Person> res15 = query15.execute();
+		for (Person i: res15) {
+			System.out.println(i.toString());
+		}	 
+		db.close();
+	}
+
+}

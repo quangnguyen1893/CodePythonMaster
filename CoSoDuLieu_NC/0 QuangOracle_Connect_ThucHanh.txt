@@ -1,0 +1,16 @@
+1. mở net manager
+	xem tên orcl và listener -> xem tên máy copy vào lại
+	File -> save as network config
+2. vào service -> start các dịch vụ của oracle lên hết
+3. quay về net manager -> vào orcl test lại connect
+4. mở oracle developer lên thao tác
+	user: sys
+	pass: orcl
+	chọn service name: orcl
+	
+5. chạy câu lệnh create user và cấp quyền
+	create user user1 indentified by "123";
+	gran all privileges to user1;
+
+6. logout ra -> đăng nhập lại
+	role: Defaul
