@@ -1,7 +1,7 @@
 run cau lenh o cua so Terminal
 
     bison -d vd.y
-    flex vd.flex
+    flex vd.lex
     gcc -o comp -lfl lex.yy.c vd.tab.c
 
 tao file source.k va source-error.k sau do chen noi dung vao

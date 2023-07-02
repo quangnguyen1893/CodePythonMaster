@@ -6,7 +6,7 @@ run cau lenh o cua so Terminal
 
 tao file source.k va source-error.k sau do chen noi dung vao
 
-    ./comp <source.k
+    ./comp <source.k>>result.txt
 
 
 sau do run file Bai2.py

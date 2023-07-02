@@ -84,7 +84,7 @@ def docfile(path):
     return rs
 
 # Chuỗi lệnh
-path = '/home/lighter/Documents/Master/CodeMaster/CodePythonMaster/5 LyThuyetThongTin/Baitaplon/Bai1/result.txt'
+path = '/Users/anhthu/Documents/CodePython/CodePythonMaster/5 LyThuyetThongTin/Baitaplon/Bai2/result.txt'
 string_command = docfile(path)
 
 try:
