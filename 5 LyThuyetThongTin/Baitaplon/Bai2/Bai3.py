@@ -89,7 +89,7 @@ def docfile(path):
         rs = file.read().splitlines()
     return rs
 # Chuỗi lệnh
-path = '/Users/anhthu/Documents/CodePython/CodePythonMaster/5 LyThuyetThongTin/Baitaplon/Bai3/result2.txt'
+path = '/home/quang/CodePythonMaster/5 LyThuyetThongTin/Baitaplon/Bai3/result2.txt'
 string_command = docfile(path)
 try:
     instructions = string_command

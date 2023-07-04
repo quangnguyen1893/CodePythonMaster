@@ -39,58 +39,55 @@
    /* Put the tokens into the symbol table, so that GDB and other debuggers
       know about them.  */
    enum yytokentype {
-     T_PRINT = 258,
-     T_CONSTANT = 259,
-     T_INT = 260,
-     T_LESSTHAN = 261,
-     T_LESSTHAN_EQUAL = 262,
-     T_GREATER = 263,
-     T_GREATER_EQUAL = 264,
-     T_EQUAL = 265,
-     T_NOT_EQUAL = 266,
-     T_WHILE = 267,
-     T_DO = 268,
-     T_ENDO = 269,
-     T_IF = 270,
-     T_THEN = 271,
-     T_ELSE = 272,
-     T_ENDIF = 273,
-     T_ID = 274,
-     UMINUS = 275
+     T_CONSTANT = 258,
+     T_ID = 259,
+     T_PRINT = 260,
+     T_WHILE = 261,
+     T_DO = 262,
+     T_ENDO = 263,
+     T_IF = 264,
+     T_THEN = 265,
+     T_LE = 266,
+     T_SE = 267,
+     T_ET = 268,
+     T_NET = 269,
+     T_ELSE = 270,
+     T_ENDIF = 271,
+     T_INT = 272,
+     UMINUS = 273
    };
 #endif
 /* Tokens.  */
-#define T_PRINT 258
-#define T_CONSTANT 259
-#define T_INT 260
-#define T_LESSTHAN 261
-#define T_LESSTHAN_EQUAL 262
-#define T_GREATER 263
-#define T_GREATER_EQUAL 264
-#define T_EQUAL 265
-#define T_NOT_EQUAL 266
-#define T_WHILE 267
-#define T_DO 268
-#define T_ENDO 269
-#define T_IF 270
-#define T_THEN 271
-#define T_ELSE 272
-#define T_ENDIF 273
-#define T_ID 274
-#define UMINUS 275
+#define T_CONSTANT 258
+#define T_ID 259
+#define T_PRINT 260
+#define T_WHILE 261
+#define T_DO 262
+#define T_ENDO 263
+#define T_IF 264
+#define T_THEN 265
+#define T_LE 266
+#define T_SE 267
+#define T_ET 268
+#define T_NET 269
+#define T_ELSE 270
+#define T_ENDIF 271
+#define T_INT 272
+#define UMINUS 273
 
 
 
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 typedef union YYSTYPE
-#line 60 "vd.y"
+#line 52 "vd.y"
 {
 	int intValue;
 	char strValue[32];
+	int errValue;
 }
 /* Line 1529 of yacc.c.  */
-#line 94 "vd.tab.h"
+#line 91 "vd.tab.h"
 	YYSTYPE;
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
 # define YYSTYPE_IS_DECLARED 1

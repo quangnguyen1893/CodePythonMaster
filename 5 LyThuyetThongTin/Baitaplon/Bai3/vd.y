@@ -1,116 +1,173 @@
 %{
 #include <stdio.h>
 #include <string.h>
-int yylex (void);
-int yyerror(const char *msg) {
-	fprintf(stderr, "Error:%s\n", msg);
-	return 0;
-}
+#include <stdlib.h>
 
-typedef struct {
-	char name[32];
-	int val;
-} Variable;
+	typedef struct {
+		char name[32]; //giới hạn tên biến tối đa 32 ký tự.
+		int val;
+	} Variable;
 
-Variable VariableList[1000];
-
-int n = 0;
-
-int findVariable(const char *name) {
-	for (int i=0; i<n; i++) {
-		if (strcmp(name, VariableList[i].name) == 0) {
+	Variable VariableList[1000]; //Giới hạn tối đa 1000 biến.
+	int n = 0;
+	int err = 0;
+	//Kiểm tra biến đã có trong danh sách chưa, nếu chưa trả về -1.
+	int findVariable(const char *name) {
+		for (int i = 0; i < n; i++)
+			if (strcmp(name, VariableList[i].name) == 0)
 			return i;
+		return -1;
+	}
+	
+	//Thêm biến tên name vào danh sách VariableList
+	void addVariable(const char *name) {
+		strcpy(VariableList[n].name, name);
+		n = n + 1;
+	}
+	
+	//Lấy giá trị của biến tên name
+	int getValue(const char *name) {
+		for (int i=0; i<n; i++){
+			if (strcmp(name, VariableList[i].name) == 0) {
+				return VariableList[i].val;
+			}
 		}
+		return -1;
 	}
-	return -1;
-}
 
-void addVariable(const char *name) {
-	strcpy(VariableList[n].name, name);
-	n++;
-}
-
-int getValue(const char *name) {
-	for (int i=0; i<n; i++) {
-		if (strcmp(name, VariableList[i].name) == 0) {
-			return VariableList[i].val;
+	//Gán val vào biến tên name
+	int setValue(const char *name, int val) {
+		int index = findVariable(name);
+		if (index != -1) {
+			VariableList[index].val = val;
 		}
+		return -1;
 	}
-	return -1;
-}
 
-int setValue(const char *name, int val) {
-	for (int i=0; i<n; i++) {
-		if (strcmp(name, VariableList[i].name) == 0) {
-			VariableList[i].val = val;
-			return 1;
-		}
-	}
-	return 0;
-}
-
-void printVariable() {
-	for (int i=0; i<n; i++) {
-		printf("%s %d\n", VariableList[i].name, VariableList[i].val);
-	}
-}
-
+	// Hàm kiểm tra lỗi
+	int yylex();
+	void yyerror(const char *s);
 %}
 
 %union {
 	int intValue;
 	char strValue[32];
+	int errValue;
 }
 
-%token <intValue> T_PRINT T_CONSTANT T_INT 
-%token <intValue> T_LESSTHAN T_LESSTHAN_EQUAL T_GREATER T_GREATER_EQUAL T_EQUAL T_NOT_EQUAL T_WHILE T_DO T_ENDO T_IF T_THEN T_ELSE T_ENDIF
+%token <intValue> T_CONSTANT
 %token <strValue> T_ID
 %type <intValue> Expression
-%left	'+' '-'
-%left	'*' '/'
+%type <intValue> Bexpression
+%token T_PRINT T_WHILE T_DO T_ENDO T_IF T_THEN
+%token T_LE T_SE T_ET T_NET T_ELSE T_ENDIF
+%token T_INT
+%left '+' '-'
+%left '*' '/'
 %nonassoc UMINUS
 
 %%
-Program			: Block;
-Block			: '{' Slist '}' |
-				'{' vardef Slist '}';
-				
-vardef			: T_INT varlist {};
-
-varlist			: T_ID ',' varlist {addVariable($1);} | 
-				T_ID {addVariable($1);};
-				
-Slist			: Statement | Statement ';' Slist;
-
-Statement		: T_PRINT '(' Expression ')' {printf("PRINT\n");} |
-				ifStatement |
-				whilestatement |
-				T_ID '=' Expression {setValue($1,$3);printf("TO %s\n",$1);} | ;
-				
-ifStatement		: T_IF {printf("IF\n");} bExpression T_THEN {printf("THEN\n");} Slist elseIf T_ENDIF {printf("ENDIF\n");};
-
-elseIf			: {printf("ELSE\n");} T_ELSE Slist | ;
-				
-whilestatement	: T_WHILE {printf("WHILE\n");} bExpression T_DO {printf("DO \n");} Slist T_ENDO {printf("ENDO\n");};
-
-bExpression		: Expression relop Expression;
-
-relop			: T_LESSTHAN {printf("T_LESSTHAN\n");} | 
-				T_LESSTHAN_EQUAL {printf("T_LESSTHAN_EQUAL\n");} |
-				T_GREATER {printf("T_GREATER\n");} |
-				T_GREATER_EQUAL {printf("T_GREATER_EQUAL\n");} |
-				T_EQUAL {printf("T_EQUAL\n");} |
-				T_NOT_EQUAL {printf("T_NOT_EQUAL\n");} ;
-				
-Expression		: Expression '+' Expression {$$ = $1 + $3;printf("ADD\n");} |
-				Expression '-' Expression {$$ = $1 - $3;printf("SUB\n");} |
-				Expression '*' Expression {$$ = $1 * $3;printf("MUL\n");} |
-				Expression '/' Expression {$$ = $1 / $3;printf("DIV\n");} |
-				'-' Expression %prec UMINUS {$$ = - $2;printf("UMINUS\n");} |
-				'(' Expression ')' {} |			
-				T_CONSTANT {$$ = $1;printf("PUSH %d\n", $1);} |
-				T_ID {$$=getValue($1);printf("VARIABLE %s\n", $1);};
-				
+Program : Block ;
+Block : '{' Slist '}' |
+	 '{' Vardef Slist '}' ;
+Vardef : T_INT Varlist ';' ;
+Varlist : T_ID ',' 
+Varlist
+	{
+		if (findVariable($1) == -1){
+			addVariable($1);
+			printf("DEFINE %s \n", $1);
+		}
+	}|
+	T_ID {
+		if (findVariable($1) == -1){
+			addVariable($1);
+			printf("DEFINE %s \n", $1);
+		}
+	} ;
+Bexpression : Expression T_LE Expression {
+		$$ = ($1 >= $3) ? 1 : 0;
+		printf("COMPARE %d >= %d \n", $1, $3);
+		}|
+		Expression T_SE Expression {
+		$$ = ($1 <= $3) ? 1 : 0;
+		printf("COMPARE %d <= %d \n", $1, $3);
+		}|
+		Expression T_ET Expression {
+		$$ = ($1 == $3) ? 1 : 0;
+		printf("COMPARE %d == %d \n", $1, $3);
+		}|
+		Expression T_NET Expression {
+		$$ = ($1 != $3) ? 1 : 0;
+		printf("COMPARE %d != %d \n", $1, $3);
+		}|
+		Expression '<' Expression {
+		$$ = ($1 < $3) ? 1 : 0;
+		printf("COMPARE %d < %d \n", $1, $3);
+		}|
+		Expression '>' Expression{
+		$$ = ($1 > $3) ? 1 : 0;
+		printf("COMPARE %d > %d \n", $1, $3);
+		} ;
+Whilestatement : T_WHILE Bexpression T_DO
+		Slist
+		T_ENDO
+	{
+		printf("WHILESTAMENT: ");
+		if ($2 == 1) {
+			printf("True \n");
+		}else {
+			printf("False \n");
+		}
+	} ;
+IfStament : T_IF Bexpression T_THEN Slist T_ELSE Slist T_ENDIF
+		{printf("IFSTAMENT: ");
+			if ($2 == 1) {
+				printf("True \n");
+			}else {
+				printf("False \n");
+			}
+		}|
+		T_IF Bexpression T_THEN Slist T_ENDIF
+		{printf("If stament");
+		if ($2 == 1) {
+			printf("True \n");
+		}else {
+			printf("False \n");
+		  }
+		} ;
+Slist : Stament |
+	 Stament ';' Slist ;
+Stament : T_PRINT '(' Expression ')' {
+						if (err == 0){
+						printf("%d\n", $3);
+					       }
+				         }|
+		     T_ID '=' Expression {
+		     setValue($1, $3);
+		}|
+		Whilestatement Stament|
+		IfStament Stament| ;
+		
+Expression : Expression '+' Expression {printf("ADD\n"); $$ = $1 + $3;} |
+	      Expression '-' Expression {printf("SUB\n"); $$ = $1 - $3;} |
+	      Expression '*' Expression {printf("MUL\n"); $$ = $1 * $3;} |
+	      Expression '/' Expression {printf("DIV\n"); $$ = $1 / $3;} |
+		'-' Expression %prec UMINUS {printf("UMINUS\n"); $$ = - $2;} |
+		'(' Expression ')' {$$ = $2;} |
+		T_CONSTANT {printf("PUSH %d\n", $1); $$ = $1;}|
+		T_ID { printf("POP %s\n", $1);
+			int val = getValue($1);
+			if (val == -1)
+			{
+				yyerror(strcat($1, " is not defined."));
+				err = 1;
+			}
+			else
+			{
+				$$ = getValue($1);
+			}
+		} ;
 %%
 
 int main() {

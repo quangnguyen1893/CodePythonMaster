@@ -1,12 +1,13 @@
 run cau lenh o cua so Terminal
 
-    bison -d vd.y
-    flex vd.lex
-    gcc -o comp -lfl lex.yy.c vd.tab.c
+    bison -d vd.y ======> sinh ra vd.tab.c va vd.tab.h
+    flex vd.flex  ======> sinh ra lex.yy.c
+    gcc -o comp -lfl lex.yy.c vd.tab.c    ======> sinh ra comp
 
 tao file source.k va source-error.k sau do chen noi dung vao
 
-    ./mycomp <source.k>>result.txt
+    ./comp <source2.k>>result2.txt
+    ./comp <source3.k>>result3.txt
+    ./comp <source4.k>>result4.txt
 
-
-sau do run file Bai2.py
+sau do run file Bai3.py
