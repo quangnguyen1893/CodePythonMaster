@@ -1,172 +1,98 @@
-import sys
-
-class Stack:
+class StackMachine:
     def __init__(self):
-        self.items = []
+        self.stack = []
+        self.variables = {}
 
-    def push(self, item):
-        self.items.append(item)
+    def push(self, value):
+        self.stack.append(value)
 
     def pop(self):
-        if not self.is_empty():
-            return self.items.pop()
-        return None
+        if self.stack:
+            return self.stack.pop()
+        else:
+            raise ValueError("Stack is empty")
 
-    def is_empty(self):
-        return len(self.items) == 0
+    def add(self):
+        if len(self.stack) >= 2:
+            b = self.stack.pop()
+            a = self.stack.pop()
+            result = a + b
+            self.stack.append(result)
+        else:
+            raise ValueError("Không đủ toán hạng để thực hiện phép toán Cộng")
 
-    def peek(self):
-        if not self.is_empty():
-            return self.items[-1]
-        return None
+    def sub(self):
+        if len(self.stack) >= 2:
+            b = self.stack.pop()
+            a = self.stack.pop()
+            result = a - b
+            self.stack.append(result)
+        else:
+            raise ValueError("Không đủ toán hạng để thực hiện phép toán Trừ")
 
-def evaluate(operator, a, b, variables):
-    def parse_int(value):
-        try:
-            return int(value)
-        except ValueError:
-            return 0
-        
-    if a in variables:
-        a = int(variables[a])
-    else:
-        a = parse_int(a)
+    def mul(self):
+        if len(self.stack) >= 2:
+            b = self.stack.pop()
+            a = self.stack.pop()
+            result = a * b
+            self.stack.append(result)
+        else:
+            raise ValueError("Không đủ toán hạng để thực hiện phép toán Nhân")
 
-    if b in variables:
-        b = int(variables[b])
-    else:
-        b = parse_int(b)
+    def div(self):
+        if len(self.stack) >= 2:
+            b = self.stack.pop()
+            a = self.stack.pop()
+            result = a / b
+            self.stack.append(result)
+        else:
+            raise ValueError("Không đủ toán hạng để thực hiện phép toán Chia")
 
-    if operator == 'ADD':
-        return a + b
-    elif operator == 'SUB':
-        return a - b
-    elif operator == 'MUL':
-        return a * b
-    elif operator == 'DIV':
-        return a / b
-    elif operator == '<':
-        return a < b
-    elif operator == '<=':
-        return a <= b
-    elif operator == '>':
-        return a > b
-    elif operator == '>=':
-        return a >= b
-    elif operator == '==':
-        return a == b
-    elif operator == '!=':
-        return a != b
-    else:
-        return None
+    def variable(self, name):
+        if name in self.variables:
+            value = self.variables[name]
+            self.push(value)
+        else:
+            raise ValueError(f"Biến chưa đc định nghĩa: {name}")
 
+    def execute(self, instructions):
+        for instruction in instructions:
+            parts = instruction.split()
 
-def execute_intermediate_code(code):
-    stack = Stack()
-    whileStack = Stack()
-    variables = {}
-    line = 0
-
-    instructions = code.split('\n')
-    while line < len(instructions):
-        instruction = instructions[line]
-        if instruction.startswith('PUSH'):
-            _, value = instruction.split()
-            if value != 'BLANK':
-                stack.push(value)
-        elif instruction.startswith('ASSIGN'): # ASSIGN variable value
-            _, variable, value = instruction.split()
-            variables[variable] = value if value != 'BLANK' else stack.peek() 
-        elif instruction in ['ADD', 'SUB', 'MUL', 'DIV']:
-            operand2 = stack.pop()
-            operand1 = stack.pop()
-            
-            result = evaluate(instruction, operand1, operand2, variables)
-            stack.push(result)
-        elif instruction == 'PRINT':
-            value = stack.pop()
-            print(value)
-        elif instruction.startswith('BEXPRESSION'): # BEXPRESSION operand1 operator operand2
-            _, operand1, operator, operand2 = instruction.split()
-            result = evaluate(operator, operand1 if operand1 != 'BLANK' else stack.peek(), operand2 if operand2 != 'BLANK' else stack.peek(), variables)
-            stack.push(result)
-        elif instruction == 'IF':
-            condition = stack.pop()
-            if condition:
-                line += 1  # Skip block
+            if parts[0] == "PUSH":
+                value = int(parts[1])
+                self.push(value)
+            elif parts[0] == "TO":
+                variable = parts[1]
+                value = self.pop()
+                self.variables[variable] = value
+            elif parts[0] == "VARIABLE":
+                variable = parts[1]
+                self.variable(variable)
+            elif parts[0] == "ADD":
+                self.add()
+            elif parts[0] == "SUB":
+                self.sub()
+            elif parts[0] == "MUL":
+                self.mul()
+            elif parts[0] == "DIV":
+                self.div()
+            elif parts[0] == "PRINT":
+                print(self.stack[-1])
             else:
-                # Find the corresponding ELSE or ENDIF instruction
-                endifCount = 0
-                tmp = line + 1
-                while tmp < len(instructions):
-                    if instructions[tmp] == 'IF':
-                        endifCount += 1
-                    elif instructions[tmp] in ['ELSE', 'ENDIF']:
-                        if endifCount == 0:
-                            line = tmp + 1 # Jump to ENDIF block or ENDIF
-                            break
-                        else:
-                            endifCount -= 1
+                raise ValueError("Không hợp lệ")
 
-                    tmp += 1
-            
-            continue
-        elif instruction == 'ELSE': # It appears when the if condition is false
-            endifCount = 0
-            tmp = line + 1
-            while tmp < len(instructions):
-                if instructions[tmp] == 'IF':
-                    endifCount += 1
-                elif instructions[tmp] == 'ENDIF':
-                    if endifCount == 0:
-                        line = tmp + 1 # Jump to ENDIF block
-                        break
-                    else:
-                        endifCount -= 1
+stack_machine = StackMachine()
 
-                tmp += 1
-            continue
-        elif instruction == 'WHILE':
-            whileStack.push(line)
-            condition = stack.pop()
-            if condition:
-                line += 1  # Skip block
-            else:
-                # Find the corresponding 'ENDO' instruction
-                endoCount = 0
-                tmp = line + 1
-                while tmp < len(instructions):
-                    if instructions[tmp] == 'WHILE':
-                        endoCount += 1
-                    elif instructions[tmp] == 'ENDO':
-                        if endoCount == 0:
-                            line = tmp + 1 # Jump to ENDO block
-                            break
-                        else:
-                            endoCount -= 1
-
-                    tmp += 1
-            continue
-        elif instruction == 'ENDO':
-            loopStart = whileStack.pop()  # Get the loop start position
-            line = loopStart - 1  # Jump back to the start of the loop (BEXPRESSION)
-            continue
-        line += 1
-
-def read_file(filename):
-    try:
-        with open(filename, 'r') as file:
-            contents = file.read()
-        return contents
-    except FileNotFoundError:
-        print(f"Error: File '{filename}' not found.")
-    except IOError:
-        print(f"Error: Unable to read file '{filename}'.")
-
-
-filename = sys.argv[1]
-file = read_file(filename)
-if file:
-    execute_intermediate_code(file)
-        
-
+def docfile(path):
+    with open(path, 'r') as file:
+        rs = file.read().splitlines()
+    return rs
+# Chuỗi lệnh
+path = '/Users/anhthu/Documents/CodePython/CodePythonMaster/5 LyThuyetThongTin/Baitaplon/Bai3/result2.txt'
+string_command = docfile(path)
+try:
+    instructions = string_command
+    stack_machine.execute(instructions)
+except Exception as e:
+    print(e)
