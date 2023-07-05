@@ -52,21 +52,8 @@ extern int yydebug;
     T_PRINT = 258,
     T_CONSTANT = 259,
     T_INT = 260,
-    T_LESSTHAN = 261,
-    T_LESSTHAN_EQUAL = 262,
-    T_GREATER = 263,
-    T_GREATER_EQUAL = 264,
-    T_EQUAL = 265,
-    T_NOT_EQUAL = 266,
-    T_WHILE = 267,
-    T_DO = 268,
-    T_ENDO = 269,
-    T_IF = 270,
-    T_THEN = 271,
-    T_ELSE = 272,
-    T_ENDIF = 273,
-    T_ID = 274,
-    UMINUS = 275
+    T_ID = 261,
+    UMINUS = 262
   };
 #endif
 
@@ -79,7 +66,7 @@ union YYSTYPE
 	int intValue;
 	char strValue[32];
 
-#line 83 "vd.tab.h"
+#line 70 "vd.tab.h"
 
 };
 typedef union YYSTYPE YYSTYPE;

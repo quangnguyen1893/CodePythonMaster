@@ -62,8 +62,7 @@ void printVariable() {
 	char strValue[32];
 }
 
-%token <intValue> T_PRINT T_CONSTANT T_INT 
-%token <intValue> T_LESSTHAN T_LESSTHAN_EQUAL T_GREATER T_GREATER_EQUAL T_EQUAL T_NOT_EQUAL T_WHILE T_DO T_ENDO T_IF T_THEN T_ELSE T_ENDIF
+%token <intValue> T_PRINT T_CONSTANT T_INT
 %token <strValue> T_ID
 %type <intValue> Expression
 %left	'+' '-'
@@ -71,46 +70,22 @@ void printVariable() {
 %nonassoc UMINUS
 
 %%
-Program			: Block;
-Block			: '{' Slist '}' |
-				'{' vardef Slist '}';
-				
-vardef			: T_INT varlist {};
-
-varlist			: T_ID ',' varlist {addVariable($1);} | 
-				T_ID {addVariable($1);};
-				
-Slist			: Statement | Statement ';' Slist;
-
-Statement		: T_PRINT '(' Expression ')' {printf("PRINT\n");} |
-				ifStatement |
-				whilestatement |
-				T_ID '=' Expression {setValue($1,$3);printf("TO %s\n",$1);} | ;
-				
-ifStatement		: T_IF {printf("IF\n");} bExpression T_THEN {printf("THEN\n");} Slist elseIf T_ENDIF {printf("ENDIF\n");};
-
-elseIf			: {printf("ELSE\n");} T_ELSE Slist | ;
-				
-whilestatement	: T_WHILE {printf("WHILE\n");} bExpression T_DO {printf("DO \n");} Slist T_ENDO {printf("ENDO\n");};
-
-bExpression		: Expression relop Expression;
-
-relop			: T_LESSTHAN {printf("T_LESSTHAN\n");} | 
-				T_LESSTHAN_EQUAL {printf("T_LESSTHAN_EQUAL\n");} |
-				T_GREATER {printf("T_GREATER\n");} |
-				T_GREATER_EQUAL {printf("T_GREATER_EQUAL\n");} |
-				T_EQUAL {printf("T_EQUAL\n");} |
-				T_NOT_EQUAL {printf("T_NOT_EQUAL\n");} ;
-				
-Expression		: Expression '+' Expression {$$ = $1 + $3;printf("ADD\n");} |
-				Expression '-' Expression {$$ = $1 - $3;printf("SUB\n");} |
-				Expression '*' Expression {$$ = $1 * $3;printf("MUL\n");} |
-				Expression '/' Expression {$$ = $1 / $3;printf("DIV\n");} |
-				'-' Expression %prec UMINUS {$$ = - $2;printf("UMINUS\n");} |
-				'(' Expression ')' {} |			
-				T_CONSTANT {$$ = $1;printf("PUSH %d\n", $1);} |
-				T_ID {$$=getValue($1);printf("VARIABLE %s\n", $1);};
-				
+Program		: Block;
+Block		: '{' Slist '}' |
+			'{' vardef Slist '}';
+vardef		: T_INT varlist {};
+varlist		: T_ID ',' varlist {addVariable($1);} | T_ID {addVariable($1);};
+Slist		: Statement | Statement ';' Slist;
+Statement	: T_PRINT '(' Expression ')' {/*printVariable();*/printf("PRINT\n");} |
+			T_ID '=' Expression {setValue($1,$3);printf("TO %s\n",$1);} | ;
+Expression	: Expression '+' Expression {$$ = $1 + $3;printf("ADD\n");} |
+			Expression '-' Expression {$$ = $1 - $3;printf("SUB\n");} |
+			Expression '*' Expression {$$ = $1 * $3;printf("MUL\n");} |
+			Expression '/' Expression {$$ = $1 / $3;printf("DIV\n");} |
+			'-' Expression %prec UMINUS {$$ = - $2;printf("UMINUS\n");} |
+			'(' Expression ')' {} |			
+			T_CONSTANT {$$ = $1;printf("PUSH %d\n", $1);} |
+			T_ID {$$=getValue($1);printf("VARIABLE %s\n", $1);};
 %%
 
 int main() {
