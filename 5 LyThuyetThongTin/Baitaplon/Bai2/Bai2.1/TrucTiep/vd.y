@@ -6,7 +6,7 @@
 int yylex(void);
 
 int yyerror(const char *msg) {
-    fprintf(stderr, "Error: %s\n", msg);
+    fprintf(stderr, "Lỗi: %s\n", msg);
     return 0;
 }
 
@@ -74,7 +74,7 @@ Slist       : Statement | Statement ';' Slist;
 Statement   : T_PRINT '(' Expression ')' { printf("%d\n", $3); } |
               T_ID '=' Expression {
                   if (findVariable($1) == -1) {
-                      fprintf(stderr, "Error: Variable '%s' is not declared.\n", $1);
+                      fprintf(stderr, "Lỗi: Biến '%s' chưa được khai báo.\n", $1);
                   } else {
                       setValue($1, $3);
                   }
@@ -91,7 +91,7 @@ Expression  : Expression '+' Expression { $$ = $1 + $3; } |
               T_ID {
                   int value = getValue($1);
                   if (value == -9999) {
-                      fprintf(stderr, "Error: Variable '%s' is not declared.\n", $1);
+                      fprintf(stderr, "Lỗi: Biến '%s' chưa được khai báo.\n", $1);
                   }
                   $$ = value;
               };

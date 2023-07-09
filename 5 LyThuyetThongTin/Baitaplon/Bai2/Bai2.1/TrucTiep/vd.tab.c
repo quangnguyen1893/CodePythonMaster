@@ -76,7 +76,7 @@
 int yylex(void);
 
 int yyerror(const char *msg) {
-    fprintf(stderr, "Error: %s\n", msg);
+    fprintf(stderr, "Lỗi: %s\n", msg);
     return 0;
 }
 
@@ -562,9 +562,9 @@ static const yytype_int8 yytranslate[] =
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int8 yyrline[] =
 {
-       0,    68,    68,    69,    70,    71,    72,    72,    73,    73,
-      74,    75,    81,    83,    84,    85,    86,    87,    88,    89,
-      90,    91
+       0,    68,    68,    69,    70,    71,    72,    72,    74,    74,
+      75,    76,    82,    84,    85,    86,    87,    88,    89,    90,
+      91,    92
 };
 #endif
 
@@ -1168,16 +1168,16 @@ yyreduce:
     break;
 
   case 10: /* Statement: T_PRINT '(' Expression ')'  */
-#line 74 "vd.y"
+#line 75 "vd.y"
                                          { printf("%d\n", (yyvsp[-1].intValue)); }
 #line 1174 "vd.tab.c"
     break;
 
   case 11: /* Statement: T_ID '=' Expression  */
-#line 75 "vd.y"
+#line 76 "vd.y"
                                   {
                   if (findVariable((yyvsp[-2].strValue)) == -1) {
-                      fprintf(stderr, "Error: Variable '%s' is not declared.\n", (yyvsp[-2].strValue));
+                      fprintf(stderr, "Lỗi: Biến '%s' chưa được khai báo.\n", (yyvsp[-2].strValue));
                   } else {
                       setValue((yyvsp[-2].strValue), (yyvsp[0].intValue));
                   }
@@ -1186,59 +1186,59 @@ yyreduce:
     break;
 
   case 13: /* Expression: Expression '+' Expression  */
-#line 83 "vd.y"
+#line 84 "vd.y"
                                         { (yyval.intValue) = (yyvsp[-2].intValue) + (yyvsp[0].intValue); }
 #line 1192 "vd.tab.c"
     break;
 
   case 14: /* Expression: Expression '-' Expression  */
-#line 84 "vd.y"
+#line 85 "vd.y"
                                         { (yyval.intValue) = (yyvsp[-2].intValue) - (yyvsp[0].intValue); }
 #line 1198 "vd.tab.c"
     break;
 
   case 15: /* Expression: Expression '*' Expression  */
-#line 85 "vd.y"
+#line 86 "vd.y"
                                         { (yyval.intValue) = (yyvsp[-2].intValue) * (yyvsp[0].intValue); }
 #line 1204 "vd.tab.c"
     break;
 
   case 16: /* Expression: Expression '/' Expression  */
-#line 86 "vd.y"
+#line 87 "vd.y"
                                         { (yyval.intValue) = (yyvsp[-2].intValue) / (yyvsp[0].intValue); }
 #line 1210 "vd.tab.c"
     break;
 
   case 17: /* Expression: Expression '^' Expression  */
-#line 87 "vd.y"
+#line 88 "vd.y"
                                         { (yyval.intValue) = pow((yyvsp[-2].intValue), (yyvsp[0].intValue)); }
 #line 1216 "vd.tab.c"
     break;
 
   case 18: /* Expression: '-' Expression  */
-#line 88 "vd.y"
+#line 89 "vd.y"
                                           { (yyval.intValue) = -(yyvsp[0].intValue); }
 #line 1222 "vd.tab.c"
     break;
 
   case 19: /* Expression: '(' Expression ')'  */
-#line 89 "vd.y"
+#line 90 "vd.y"
                                  {}
 #line 1228 "vd.tab.c"
     break;
 
   case 20: /* Expression: T_CONSTANT  */
-#line 90 "vd.y"
+#line 91 "vd.y"
                          { (yyval.intValue) = (yyvsp[0].intValue); }
 #line 1234 "vd.tab.c"
     break;
 
   case 21: /* Expression: T_ID  */
-#line 91 "vd.y"
+#line 92 "vd.y"
                    {
                   int value = getValue((yyvsp[0].strValue));
                   if (value == -9999) {
-                      fprintf(stderr, "Error: Variable '%s' is not declared.\n", (yyvsp[0].strValue));
+                      fprintf(stderr, "Lỗi: Biến '%s' chưa được khai báo.\n", (yyvsp[0].strValue));
                   }
                   (yyval.intValue) = value;
               }
@@ -1439,7 +1439,7 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 98 "vd.y"
+#line 99 "vd.y"
 
 
 int main() {
