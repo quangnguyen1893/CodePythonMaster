@@ -56,8 +56,12 @@ void createHtmlFile(){
 	printf("text.html is OK\n");
 }
 // Hàm kiểm tra lỗi
+int yyerror(const char *msg) {
+	fprintf(stderr, "Error:%s\n", msg);
+	return 0;
+}
+// Hàm kiểm tra lỗi
 int yylex();
-	void yyerror(const char *s);
 
 %}
 
@@ -70,7 +74,7 @@ Row : int | endl ;
 int : T_CONSTANT { $$ = $1; addValue($1);
 				 } |
 	T_UMINUS T_CONSTANT { $$ = -$2; } ;
-endl : T_ENDL { endLine() } ;
+endl : T_ENDL { endLine(); } ;
 %%
 int main() {
 	yyparse();

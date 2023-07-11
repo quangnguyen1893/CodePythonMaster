@@ -16,9 +16,12 @@ void toNextLine(){
 	row++;
 	col = 1;
 }
+int yyerror(const char *msg) {
+	fprintf(stderr, "Error:%s\n", msg);
+	return 0;
+}
 // Hàm kiểm tra lỗi
 int yylex();
-	void yyerror(const char *s);
 %}
 
 %token T_CONSTANT T_UMINUS T_ENDL
