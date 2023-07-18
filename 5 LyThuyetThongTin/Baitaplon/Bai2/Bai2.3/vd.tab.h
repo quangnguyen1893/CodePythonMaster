@@ -50,38 +50,14 @@ extern int yydebug;
   enum yytokentype
   {
     T_CONSTANT = 258,
-    T_ID = 259,
-    T_PRINT = 260,
-    T_WHILE = 261,
-    T_DO = 262,
-    T_ENDO = 263,
-    T_IF = 264,
-    T_THEN = 265,
-    T_LE = 266,
-    T_SE = 267,
-    T_ET = 268,
-    T_NET = 269,
-    T_ELSE = 270,
-    T_ENDIF = 271,
-    T_INT = 272,
-    UMINUS = 273
+    T_UMINUS = 259,
+    T_ENDL = 260
   };
 #endif
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
-union YYSTYPE
-{
-#line 57 "vd.y"
-
-	int intValue;
-	char strValue[32];
-	// int errValue;
-
-#line 82 "vd.tab.h"
-
-};
-typedef union YYSTYPE YYSTYPE;
+typedef int YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define YYSTYPE_IS_DECLARED 1
 #endif
