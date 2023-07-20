@@ -1,0 +1,13 @@
+run cau lenh o cua so Terminal
+
+    bison -d vd.y ======> sinh ra vd.tab.c va vd.tab.h
+    flex vd.lex  ======> sinh ra lex.yy.c
+    gcc -o comp -lfl lex.yy.c vd.tab.c -lm   ======> sinh ra comp (-lm để hiểu được #include <math.h> trong vd.y)
+
+tao file source.k va source-error.k sau do chen noi dung vao
+
+    ./comp <source2.k>>result2.txt
+    ./comp <source3.k>>result3.txt
+    ./comp <source4.k>>result4.txt
+
+sau do run file Bai3.py
