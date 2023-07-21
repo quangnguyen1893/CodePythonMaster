@@ -21,6 +21,7 @@ int yyerror(const char *msg) {
 %nonassoc UMINUS
 %%
 
+matrix: rows;
 rows:   rows row | row; //một ma trận có thể có nhiều hàng
 row:    value | value T_ENDL{ //mỗi một hàng có thể có 1 cột hoặc nhiều cột
             printf("\n");
@@ -33,5 +34,6 @@ value:  T_CONSTANT{$$ = $1; printResult(column_number, $1);column_number++;} |  
 
 int main() {
     yyparse();
+    printf("\n");
     return 0;
 }

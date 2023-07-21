@@ -19,6 +19,7 @@ int yyerror(const char *msg) {
 %nonassoc UMINUS
 %%
 
+matrix: rows;
 rows:   rows row | row; //một ma trận có thể có nhiều hàng
 row:    value | value T_ENDL{ //mỗi một hàng có thể có 1 cột hoặc nhiều cột
             printf("</tr>\n");
@@ -32,7 +33,7 @@ value:  T_CONSTANT{$$ = $1; print_td($1);column_number++;} |  //cập nhật gi�
 
 int main() {
     printf("<table boder='1'>\n");
-    printf("<tr>\n");
+    printf("\n<tr>\n");
     yyparse();
     printf("\n</tr>\n");
     printf("</table>\n");

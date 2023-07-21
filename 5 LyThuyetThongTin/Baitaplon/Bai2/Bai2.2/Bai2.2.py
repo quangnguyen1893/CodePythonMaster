@@ -136,7 +136,7 @@ class MyProgram:
             # listVariable[val[1]] = int(self.pop())
             # print(f"Lis variable : {self.listVariable}")
         elif val[0] == 'PRINT':
-            self.print()
+            self.printCmd()
         elif val[0] == 'WHILE' or val[0] == 'IF':
             self.pushNewStatement(val[0])
         elif val[0] == 'ELSE' and self.skipElse:
@@ -181,8 +181,8 @@ class MyProgram:
             self.stack.push(int(num2) / int(num1))
         # return ''
 
-    def print(self):
-        print(">>>>>> PRINT >>>>>> ", end="")
+    def printCmd(self):
+        #print(">>>>>> PRINT >>>>>> ", end="")
         print(self.stack.pop())
 
     def printTest(self):
@@ -242,29 +242,21 @@ class MyProgram:
                 tmpS.push(int(num2) / int(num1))
         return tmpS.pop()
 
-# from mylib import Stack
-import sys
-
-# S = Stack()
-# S.po
-# input = sys.argv[1]
-# with open(input, 'r') as info:
-#     for line in info:
-#         print("("+line.strip()+")")
-
-# with open('res.txt', 'r') as f:
-#     while True:
-#         line = f.readline()
-#         if not line:
-#             break
-#         print(line)
 
 myPro = MyProgram()
 listVariable = {}
 condition = Stack()
 flagCondition = False
-with open('res.txt', 'r') as f:
+
+
+with open('/home/quang/CodePythonMaster/5 LyThuyetThongTin/Baitaplon/Bai2/Bai2.2/result3.txt', 'r') as f:
     for line in f:
         res = myPro.readNewItem(line)
 
-# myPro.printTest()
+
+# from commandline
+# import sys
+# input = sys.argv[1]
+# with open(input, 'r') as f:
+#     for line in f:
+#         res = myPro.readNewItem(line)
