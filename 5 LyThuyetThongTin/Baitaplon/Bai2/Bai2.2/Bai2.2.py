@@ -249,7 +249,8 @@ condition = Stack()
 flagCondition = False
 
 
-with open('/home/quang/CodePythonMaster/5 LyThuyetThongTin/Baitaplon/Bai2/Bai2.2/result3.txt', 'r') as f:
+# with open('/home/quang/CodePythonMaster/5 LyThuyetThongTin/Baitaplon/Bai2/Bai2.2/result3.txt', 'r') as f:
+with open('/home/quang/CodePythonMaster/5 LyThuyetThongTin/Baitaplon/Bai2/Bai2.2/result6.txt', 'r') as f:
     for line in f:
         res = myPro.readNewItem(line)
 
