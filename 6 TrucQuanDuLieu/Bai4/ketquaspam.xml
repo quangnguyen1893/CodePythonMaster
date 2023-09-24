@@ -1,0 +1,224 @@
+<?xml version='1.0' encoding='utf-8'?>
+<XML>
+	<Node_1 op="char_freq_$ &lt;= 0.055">
+		<Node_2 op="word_freq_remove &lt;= 0.05">
+			<Node_3 op="char_freq_! &lt;= 0.191">
+				<Node_4 op="word_freq_hp &gt; 0.02" class="non_spam" items="905" errors="9" />
+				<Node_5 op="word_freq_hp &lt;= 0.02">
+					<Node_6 op="capital_run_length_longest &lt;= 10">
+						<Node_7 op="word_freq_free &lt;= 0.84">
+							<Node_8 op="word_freq_internet &lt;= 0.03" class="non_spam" items="981" errors="33" />
+							<Node_9 op="word_freq_internet &gt; 0.03">
+								<Node_10 op="word_freq_george &gt; 0.16" class="non_spam" items="5" errors="1" />
+								<Node_11 op="word_freq_george &lt;= 0.16">
+									<Node_12 op="word_freq_your &lt;= 0.03" class="non_spam" items="10" errors="2" />
+									<Node_13 op="word_freq_your &gt; 0.03" class="spam" items="12" errors="4" />
+								</Node_11>
+							</Node_9>
+						</Node_7>
+						<Node_14 op="word_freq_free &gt; 0.84">
+							<Node_15 op="word_freq_george &gt; 0.58" class="non_spam" items="11" errors="1" />
+							<Node_16 op="word_freq_george &lt;= 0.58">
+								<Node_17 op="char_freq_! &gt; 0.062" class="spam" items="5" errors="1" />
+								<Node_18 op="char_freq_! &lt;= 0.062">
+									<Node_19 op="word_freq_your &lt;= 0.36" class="non_spam" items="15" errors="5" />
+									<Node_20 op="word_freq_your &gt; 0.36" class="spam" items="8" errors="3" />
+								</Node_18>
+							</Node_16>
+						</Node_14>
+					</Node_6>
+					<Node_21 op="capital_run_length_longest &gt; 10">
+						<Node_22 op="word_freq_our &lt;= 0.74">
+							<Node_23 op="word_freq_re &gt; 0.35" class="non_spam" items="119" errors="3" />
+							<Node_24 op="word_freq_re &lt;= 0.35">
+								<Node_25 op="word_freq_george &gt; 0" class="non_spam" items="64" errors="1" />
+								<Node_26 op="word_freq_george &lt;= 0">
+									<Node_27 op="word_freq_1999 &gt; 0.3" class="non_spam" items="59" errors="3" />
+									<Node_28 op="word_freq_1999 &lt;= 0.3">
+										<Node_29 op="word_freq_money &lt;= 0">
+											<Node_30 op="capital_run_length_longest &gt; 110" class="spam" items="14" errors="3" />
+											<Node_31 op="capital_run_length_longest &lt;= 110">
+												<Node_32 op="capital_run_length_longest &gt; 42" class="non_spam" items="69" errors="9" />
+												<Node_33 op="capital_run_length_longest &lt;= 42">
+													<Node_34 op="capital_run_length_longest &gt; 29" class="spam" items="27" errors="7" />
+													<Node_35 op="capital_run_length_longest &lt;= 29">
+														<Node_36 op="word_freq_font &gt; 0.07" class="spam" items="7" errors="2" />
+														<Node_37 op="word_freq_font &lt;= 0.07">
+															<Node_38 op="word_freq_free &lt;= 0.13">
+																<Node_39 op="word_freq_you &lt;= 3.67">
+																	<Node_40 op="word_freq_650 &lt;= 0.29" class="non_spam" items="97" errors="13" />
+																	<Node_41 op="word_freq_650 &gt; 0.29">
+																		<Node_42 op="capital_run_length_longest &lt;= 19" class="non_spam" items="8" errors="2" />
+																		<Node_43 op="capital_run_length_longest &gt; 19" class="spam" items="7" errors="1" />
+																	</Node_41>
+																</Node_39>
+																<Node_44 op="word_freq_you &gt; 3.67">
+																	<Node_45 op="capital_run_length_average &lt;= 2.347" class="non_spam" items="6" errors="3" />
+																	<Node_46 op="capital_run_length_average &gt; 2.347" class="spam" items="6" errors="1" />
+																</Node_44>
+															</Node_38>
+															<Node_47 op="word_freq_free &gt; 0.13">
+																<Node_48 op="char_freq_( &lt;= 0.172" class="spam" items="12" errors="3" />
+																<Node_49 op="char_freq_( &gt; 0.172" class="non_spam" items="6" errors="2" />
+															</Node_47>
+														</Node_37>
+													</Node_35>
+												</Node_33>
+											</Node_31>
+										</Node_29>
+										<Node_50 op="word_freq_money &gt; 0">
+											<Node_51 op="word_freq_free &lt;= 0.06" class="spam" items="17" errors="1" />
+											<Node_52 op="word_freq_free &gt; 0.06" class="non_spam" items="5" errors="3" />
+										</Node_50>
+									</Node_28>
+								</Node_26>
+							</Node_24>
+						</Node_22>
+						<Node_53 op="word_freq_our &gt; 0.74">
+							<Node_54 op="word_freq_george &lt;= 0.19" class="spam" items="44" errors="6" />
+							<Node_55 op="word_freq_george &gt; 0.19" class="non_spam" items="5" errors="1" />
+						</Node_53>
+					</Node_21>
+				</Node_5>
+			</Node_3>
+			<Node_56 op="char_freq_! &gt; 0.191">
+				<Node_57 op="capital_run_length_average &lt;= 2.758">
+					<Node_58 op="word_freq_free &lt;= 0.06">
+						<Node_59 op="word_freq_business &gt; 0.22" class="spam" items="22" errors="5" />
+						<Node_60 op="word_freq_business &lt;= 0.22">
+							<Node_61 op="char_freq_! &lt;= 0.807">
+								<Node_62 op="word_freq_your &lt;= 0.64" class="non_spam" items="149" errors="3" />
+								<Node_63 op="word_freq_your &gt; 0.64">
+									<Node_64 op="word_freq_order &gt; 0.08" class="spam" items="7" errors="3" />
+									<Node_65 op="word_freq_order &lt;= 0.08">
+										<Node_66 op="char_freq_( &gt; 0.09" class="non_spam" items="31" errors="1" />
+										<Node_67 op="char_freq_( &lt;= 0.09">
+											<Node_68 op="capital_run_length_total &lt;= 41" class="non_spam" items="14" errors="1" />
+											<Node_69 op="capital_run_length_total &gt; 41">
+												<Node_70 op="capital_run_length_longest &lt;= 11" class="spam" items="8" errors="3" />
+												<Node_71 op="capital_run_length_longest &gt; 11" class="non_spam" items="6" errors="2" />
+											</Node_69>
+										</Node_67>
+									</Node_65>
+								</Node_63>
+							</Node_61>
+							<Node_72 op="char_freq_! &gt; 0.807">
+								<Node_73 op="word_freq_internet &gt; 0.37" class="spam" items="5" errors="1" />
+								<Node_74 op="word_freq_internet &lt;= 0.37">
+									<Node_75 op="word_freq_re &gt; 1.35" class="non_spam" items="10" errors="1" />
+									<Node_76 op="word_freq_re &lt;= 1.35">
+										<Node_77 op="word_freq_you &lt;= 1.18" class="non_spam" items="24" errors="5" />
+										<Node_78 op="word_freq_you &gt; 1.18">
+											<Node_79 op="capital_run_length_average &gt; 2.442" class="spam" items="5" errors="1" />
+											<Node_80 op="capital_run_length_average &lt;= 2.442">
+												<Node_81 op="capital_run_length_total &lt;= 39" class="spam" items="13" errors="5" />
+												<Node_82 op="capital_run_length_total &gt; 39" class="non_spam" items="5" errors="2" />
+											</Node_80>
+										</Node_78>
+									</Node_76>
+								</Node_74>
+							</Node_72>
+						</Node_60>
+					</Node_58>
+					<Node_83 op="word_freq_free &gt; 0.06">
+						<Node_84 op="char_freq_! &gt; 0.458" class="spam" items="42" errors="4" />
+						<Node_85 op="char_freq_! &lt;= 0.458">
+							<Node_86 op="word_freq_internet &lt;= 0.56" class="non_spam" items="23" errors="8" />
+							<Node_87 op="word_freq_internet &gt; 0.56" class="spam" items="7" errors="1" />
+						</Node_85>
+					</Node_83>
+				</Node_57>
+				<Node_88 op="capital_run_length_average &gt; 2.758">
+					<Node_89 op="word_freq_hp &lt;= 0.11">
+						<Node_90 op="word_freq_internet &gt; 0.04" class="spam" items="41" errors="1" />
+						<Node_91 op="word_freq_internet &lt;= 0.04">
+							<Node_92 op="char_freq_! &gt; 0.498" class="spam" items="128" errors="13" />
+							<Node_93 op="char_freq_! &lt;= 0.498">
+								<Node_94 op="word_freq_85 &gt; 0.14" class="non_spam" items="5" errors="1" />
+								<Node_95 op="word_freq_85 &lt;= 0.14">
+									<Node_96 op="word_freq_edu &gt; 0.35" class="non_spam" items="5" errors="1" />
+									<Node_97 op="word_freq_edu &lt;= 0.35">
+										<Node_98 op="word_freq_will &gt; 1.3" class="non_spam" items="6" errors="1" />
+										<Node_99 op="word_freq_will &lt;= 1.3">
+											<Node_100 op="word_freq_email &lt;= 0.06" class="spam" items="37" errors="4" />
+											<Node_101 op="word_freq_email &gt; 0.06">
+												<Node_102 op="word_freq_address &lt;= 0.06" class="non_spam" items="5" errors="1" />
+												<Node_103 op="word_freq_address &gt; 0.06" class="spam" items="5" errors="2" />
+											</Node_101>
+										</Node_99>
+									</Node_97>
+								</Node_95>
+							</Node_93>
+						</Node_91>
+					</Node_89>
+					<Node_104 op="word_freq_hp &gt; 0.11">
+						<Node_105 op="word_freq_mail &lt;= 0.25" class="non_spam" items="9" errors="1" />
+						<Node_106 op="word_freq_mail &gt; 0.25" class="spam" items="5" errors="3" />
+					</Node_104>
+				</Node_88>
+			</Node_56>
+		</Node_2>
+		<Node_107 op="word_freq_remove &gt; 0.05">
+			<Node_108 op="word_freq_hp &lt;= 0.17" class="spam" items="313" errors="20" />
+			<Node_109 op="word_freq_hp &gt; 0.17">
+				<Node_110 op="char_freq_$ &lt;= 0.013" class="non_spam" items="12" errors="2" />
+				<Node_111 op="char_freq_$ &gt; 0.013" class="spam" items="5" errors="3" />
+			</Node_109>
+		</Node_107>
+	</Node_1>
+	<Node_112 op="char_freq_$ &gt; 0.055">
+		<Node_113 op="word_freq_hp &lt;= 0.39">
+			<Node_114 op="word_freq_edu &lt;= 0.14">
+				<Node_115 op="capital_run_length_longest &lt;= 9">
+					<Node_116 op="word_freq_remove &gt; 0.02" class="spam" items="13" errors="1" />
+					<Node_117 op="word_freq_remove &lt;= 0.02">
+						<Node_118 op="word_freq_email &gt; 1.49" class="spam" items="7" errors="1" />
+						<Node_119 op="word_freq_email &lt;= 1.49">
+							<Node_120 op="word_freq_free &lt;= 0.19" class="non_spam" items="17" errors="1" />
+							<Node_121 op="word_freq_free &gt; 0.19" class="spam" items="9" errors="5" />
+						</Node_119>
+					</Node_117>
+				</Node_115>
+				<Node_122 op="capital_run_length_longest &gt; 9">
+					<Node_123 op="char_freq_! &gt; 0.143" class="spam" items="722" errors="8" />
+					<Node_124 op="char_freq_! &lt;= 0.143">
+						<Node_125 op="word_freq_our &gt; 0.45" class="spam" items="127" errors="3" />
+						<Node_126 op="word_freq_our &lt;= 0.45">
+							<Node_127 op="capital_run_length_average &lt;= 3.266">
+								<Node_128 op="word_freq_hp &gt; 0.13" class="non_spam" items="5" errors="1" />
+								<Node_129 op="word_freq_hp &lt;= 0.13">
+									<Node_130 op="word_freq_1999 &gt; 0" class="non_spam" items="5" errors="2" />
+									<Node_131 op="word_freq_1999 &lt;= 0">
+										<Node_132 op="word_freq_business &gt; 0.01" class="spam" items="20" errors="1" />
+										<Node_133 op="word_freq_business &lt;= 0.01">
+											<Node_134 op="word_freq_credit &gt; 0.22" class="spam" items="7" errors="1" />
+											<Node_135 op="word_freq_credit &lt;= 0.22">
+												<Node_136 op="word_freq_remove &gt; 0.26" class="spam" items="5" errors="1" />
+												<Node_137 op="word_freq_remove &lt;= 0.26">
+													<Node_138 op="word_freq_people &lt;= 0.28" class="non_spam" items="12" errors="4" />
+													<Node_139 op="word_freq_people &gt; 0.28" class="spam" items="6" errors="2" />
+												</Node_137>
+											</Node_135>
+										</Node_133>
+									</Node_131>
+								</Node_129>
+							</Node_127>
+							<Node_140 op="capital_run_length_average &gt; 3.266">
+								<Node_141 op="char_freq_( &lt;= 0.506" class="spam" items="74" errors="1" />
+								<Node_142 op="char_freq_( &gt; 0.506" class="non_spam" items="5" errors="3" />
+							</Node_140>
+						</Node_126>
+					</Node_124>
+				</Node_122>
+			</Node_114>
+			<Node_143 op="word_freq_edu &gt; 0.14">
+				<Node_144 op="word_freq_addresses &lt;= 0.08" class="non_spam" items="21" errors="3" />
+				<Node_145 op="word_freq_addresses &gt; 0.08" class="spam" items="5" errors="1" />
+			</Node_143>
+		</Node_113>
+		<Node_146 op="word_freq_hp &gt; 0.39">
+			<Node_147 op="word_freq_remove &lt;= 0.07" class="non_spam" items="64" errors="2" />
+			<Node_148 op="word_freq_remove &gt; 0.07" class="spam" items="6" errors="1" />
+		</Node_146>
+	</Node_112>
+</XML>

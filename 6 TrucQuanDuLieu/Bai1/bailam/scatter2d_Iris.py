@@ -4,13 +4,13 @@ from collections import defaultdict
 
 # Đọc dữ liệu từ file CSV
 data = defaultdict(list)
-file_path = "D:/Master/Master-Code/CodePythonMaster/6 TrucQuanDuLieu/Bai1/data/iris.data"
-with open(file_path, 'r') as file:
+with open('iris.data', 'r') as file:
     csv_reader = csv.reader(file)
     for row in csv_reader:
         if len(row) == 5:
             giatri1, giatri2, giatri3, giatri4, iris_class = row
             data[iris_class].append((float(giatri3), float(giatri4)))
+#chọn giá trị 3,4 cho tập iris
 
 class_colors = {
     'Iris-setosa': 'r',

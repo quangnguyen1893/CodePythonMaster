@@ -1,10 +1,9 @@
 import matplotlib.pyplot as plt
 import numpy as np
-import pandas as pd
 from collections import defaultdict
-# Chuẩn
+
 # Đọc dữ liệu từ tệp
-with open('D:/Master/Master-Code/CodePythonMaster/6 TrucQuanDuLieu/Bai1/data/sat.trn', 'r') as file:
+with open('sat.trn', 'r') as file:
     data = file.readlines()
 
 # Chia khoảng giá trị

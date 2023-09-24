@@ -1,25 +1,24 @@
 import matplotlib.pyplot as plt
 import numpy as np
-import pandas as pd
 from collections import defaultdict
-# Chuẩn
+
 # Đọc dữ liệu từ tệp
-with open('D:/Master/Master-Code/CodePythonMaster/6 TrucQuanDuLieu/Bai1/data/sat.trn', 'r') as file:
+with open('iris.data', 'r') as file:
     data = file.readlines()
 
 # Chia khoảng giá trị
-value_ranges = np.arange(0, 150, 10)  # Chia thành các khoảng giá trị từ 0 đến 150, mỗi khoảng 10 đơn vị
+value_ranges = np.arange(0, 20, 1)  #
 
 # Tạo một từ điển để lưu trữ dữ liệu theo lớp và khoảng giá trị
 class_range_data = defaultdict(lambda: {r: 0 for r in value_ranges})
 for line in data:
-    parts = list(map(int, line.strip().split()))
+    parts = list(line.strip().split(","))
     class_label = parts[-1]
     values = parts[:-1]
     
     for value in values:
         for r in value_ranges:
-            if value <= r:
+            if float(value) <= r:
                 class_range_data[class_label][r] += 1
                 break
 
@@ -31,7 +30,7 @@ for class_label, range_data in class_range_data.items():
 
 plt.xlabel('Giá trị')
 plt.ylabel('Tần suất')
-plt.title('Histogram tập dữ liệu Satellite Image')
+plt.title('Histogram tập dữ liệu Iris')
 plt.legend()
 plt.grid(True)
 plt.show()

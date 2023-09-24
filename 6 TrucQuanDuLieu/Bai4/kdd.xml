@@ -1,0 +1,378 @@
+<XML>
+	<Node_1 op = "service = aol" class = "2" items = "0" errors = "0"/>
+	<Node_2 op = "service = bgp" class = "2" items = "12" errors = "1"/>
+	<Node_3 op = "service = courier" class = "2" items = "12" errors = "3"/>
+	<Node_4 op = "service = ctf" class = "2" items = "11" errors = "3"/>
+	<Node_5 op = "service = daytime" class = "2" items = "17" errors = "2"/>
+	<Node_6 op = "service = discard" class = "2" items = "6" errors = "2"/>
+	<Node_7 op = "service = domain" class = "2" items = "12" errors = "4"/>
+	<Node_8 op = "service = domain_u" class = "0" items = "762" errors = "2"/>
+	<Node_9 op = "service = echo" class = "2" items = "8" errors = "2"/>
+	<Node_10 op = "service = efs" class = "2" items = "9" errors = "3"/>
+	<Node_11 op = "service = exec" class = "2" items = "7" errors = "1"/>
+	<Node_12 op = "service = harvest" class = "2" items = "0" errors = "0"/>
+	<Node_13 op = "service = hostnames" class = "2" items = "12" errors = "3"/>
+	<Node_14 op = "service = http_2784" class = "2" items = "0" errors = "0"/>
+	<Node_15 op = "service = http_443" class = "2" items = "12" errors = "2"/>
+	<Node_16 op = "service = http_8001" class = "2" items = "0" errors = "0"/>
+	<Node_17 op = "service = IRC" class = "0" items = "6" errors = "3"/>
+	<Node_18 op = "service = iso_tsap" class = "2" items = "19" errors = "1"/>
+	<Node_19 op = "service = klogin" class = "2" items = "8" errors = "1"/>
+	<Node_20 op = "service = kshell" class = "2" items = "9" errors = "1"/>
+	<Node_21 op = "service = ldap" class = "2" items = "10" errors = "1"/>
+	<Node_22 op = "service = name" class = "2" items = "12" errors = "3"/>
+	<Node_23 op = "service = netbios_dgm" class = "2" items = "10" errors = "1"/>
+	<Node_24 op = "service = netbios_ns" class = "2" items = "9" errors = "2"/>
+	<Node_25 op = "service = netbios_ssn" class = "2" items = "11" errors = "3"/>
+	<Node_26 op = "service = nnsp" class = "2" items = "11" errors = "1"/>
+	<Node_27 op = "service = ntp_u" class = "0" items = "44" errors = "1"/>
+	<Node_28 op = "service = pm_dump" class = "1" items = "1" errors = "0"/>
+	<Node_29 op = "service = pop_2" class = "2" items = "10" errors = "1"/>
+	<Node_30 op = "service = printer" class = "2" items = "9" errors = "4"/>
+	<Node_31 op = "service = red_i" class = "2" items = "0" errors = "0"/>
+	<Node_32 op = "service = shell" class = "2" items = "9" errors = "1"/>
+	<Node_33 op = "service = sql_net" class = "2" items = "12" errors = "2"/>
+	<Node_34 op = "service = tftp_u" class = "2" items = "0" errors = "0"/>
+	<Node_35 op = "service = tim_i" class = "0" items = "1" errors = "0"/>
+	<Node_36 op = "service = urh_i" class = "0" items = "2" errors = "1"/>
+	<Node_37 op = "service = urp_i" class = "0" items = "74" errors = "2"/>
+	<Node_38 op = "service = uucp" class = "2" items = "6" errors = "3"/>
+	<Node_39 op = "service = uucp_path" class = "2" items = "11" errors = "2"/>
+	<Node_40 op = "service = X11" class = "1" items = "4" errors = "2"/>
+	<Node_41 op = "service = Z39_50" class = "2" items = "10" errors = "3"/>
+	<Node_42 op = "service = auth">
+		<Node_43 op = "src_bytes &lt;= 9" class = "2" items = "5" errors = "3"/>
+		<Node_44 op = "src_bytes &gt; 9" class = "0" items = "19" errors = "1"/>
+	</Node_42>
+	<Node_45 op = "service = csnet_ns">
+		<Node_46 op = "dst_host_diff_srv_rate &lt;= 0.08" class = "2" items = "10" errors = "1"/>
+		<Node_47 op = "dst_host_diff_srv_rate &gt; 0.08" class = "1" items = "5" errors = "2"/>
+	</Node_45>
+	<Node_48 op = "service = eco_i">
+		<Node_49 op = "src_bytes &lt;= 24" class = "1" items = "1864" errors = "1"/>
+		<Node_50 op = "src_bytes &gt; 24" class = "0" items = "56" errors = "1"/>
+	</Node_48>
+	<Node_51 op = "service = ecr_i">
+		<Node_52 op = "src_bytes &gt; 292" class = "2" items = "25228" errors = "1"/>
+		<Node_53 op = "src_bytes &lt;= 292">
+			<Node_54 op = "src_bytes &lt;= 19" class = "1" items = "6" errors = "1"/>
+			<Node_55 op = "src_bytes &gt; 19" class = "0" items = "52" errors = "1"/>
+		</Node_53>
+	</Node_51>
+	<Node_56 op = "service = finger">
+		<Node_57 op = "dst_bytes &gt; 81" class = "0" items = "61" errors = "1"/>
+		<Node_58 op = "dst_bytes &lt;= 81">
+			<Node_59 op = "duration &lt;= 0" class = "2" items = "18" errors = "1"/>
+			<Node_60 op = "duration &gt; 0" class = "1" items = "8" errors = "1"/>
+		</Node_58>
+	</Node_56>
+	<Node_61 op = "service = ftp">
+		<Node_62 op = "is_guest_login &lt;= 0">
+			<Node_63 op = "flag = OTH" class = "3" items = "0" errors = "0"/>
+			<Node_64 op = "flag = REJ" class = "3" items = "0" errors = "0"/>
+			<Node_65 op = "flag = RSTO" class = "1" items = "6" errors = "2"/>
+			<Node_66 op = "flag = RSTOS0" class = "3" items = "0" errors = "0"/>
+			<Node_67 op = "flag = RSTR" class = "1" items = "1" errors = "0"/>
+			<Node_68 op = "flag = S0" class = "2" items = "8" errors = "1"/>
+			<Node_69 op = "flag = S1" class = "3" items = "0" errors = "0"/>
+			<Node_70 op = "flag = S2" class = "3" items = "0" errors = "0"/>
+			<Node_71 op = "flag = S3" class = "3" items = "0" errors = "0"/>
+			<Node_72 op = "flag = SF" class = "3" items = "121" errors = "2"/>
+			<Node_73 op = "flag = SH" class = "3" items = "0" errors = "0"/>
+		</Node_62>
+		<Node_74 op = "is_guest_login &gt; 0">
+			<Node_75 op = "duration &lt;= 13" class = "4" items = "2976" errors = "1"/>
+			<Node_76 op = "duration &gt; 13">
+				<Node_77 op = "duration &gt; 103" class = "4" items = "348" errors = "1"/>
+				<Node_78 op = "duration &lt;= 103">
+					<Node_79 op = "num_file_creations &lt;= 0" class = "0" items = "52" errors = "1"/>
+					<Node_80 op = "num_file_creations &gt; 0" class = "4" items = "24" errors = "1"/>
+				</Node_78>
+			</Node_76>
+		</Node_74>
+	</Node_61>
+	<Node_81 op = "service = ftp_data">
+		<Node_82 op = "src_bytes &lt;= 6">
+			<Node_83 op = "logged_in &lt;= 0">
+				<Node_84 op = "flag = OTH" class = "4" items = "0" errors = "0"/>
+				<Node_85 op = "flag = REJ" class = "1" items = "12" errors = "3"/>
+				<Node_86 op = "flag = RSTO" class = "4" items = "0" errors = "0"/>
+				<Node_87 op = "flag = RSTOS0" class = "4" items = "0" errors = "0"/>
+				<Node_88 op = "flag = RSTR" class = "1" items = "4" errors = "1"/>
+				<Node_89 op = "flag = S0" class = "2" items = "14" errors = "1"/>
+				<Node_90 op = "flag = S1" class = "4" items = "0" errors = "0"/>
+				<Node_91 op = "flag = S2" class = "4" items = "0" errors = "0"/>
+				<Node_92 op = "flag = S3" class = "4" items = "0" errors = "0"/>
+				<Node_93 op = "flag = SF" class = "4" items = "205" errors = "2"/>
+				<Node_94 op = "flag = SH" class = "4" items = "0" errors = "0"/>
+			</Node_83>
+			<Node_95 op = "logged_in &gt; 0">
+				<Node_96 op = "dst_bytes &lt;= 1038" class = "4" items = "12" errors = "1"/>
+				<Node_97 op = "dst_bytes &gt; 1038" class = "3" items = "480" errors = "1"/>
+			</Node_95>
+		</Node_82>
+		<Node_98 op = "src_bytes &gt; 6">
+			<Node_99 op = "dst_host_same_src_port_rate &gt; 0.98" class = "4" items = "6928" errors = "6"/>
+			<Node_100 op = "dst_host_same_src_port_rate &lt;= 0.98">
+				<Node_101 op = "src_bytes &lt;= 245" class = "0" items = "96" errors = "1"/>
+				<Node_102 op = "src_bytes &gt; 245">
+					<Node_103 op = "src_bytes &lt;= 353">
+						<Node_104 op = "src_bytes &gt; 326" class = "4" items = "492" errors = "1"/>
+						<Node_105 op = "src_bytes &lt;= 326">
+							<Node_106 op = "src_bytes &lt;= 249" class = "4" items = "36" errors = "1"/>
+							<Node_107 op = "src_bytes &gt; 249" class = "0" items = "14" errors = "1"/>
+						</Node_105>
+					</Node_103>
+					<Node_108 op = "src_bytes &gt; 353">
+						<Node_109 op = "duration &lt;= 3" class = "0" items = "385" errors = "1"/>
+						<Node_110 op = "duration &gt; 3" class = "4" items = "132" errors = "1"/>
+					</Node_108>
+				</Node_102>
+			</Node_100>
+		</Node_98>
+	</Node_81>
+	<Node_111 op = "service = gopher">
+		<Node_112 op = "dst_host_diff_srv_rate &lt;= 0.13" class = "2" items = "11" errors = "1"/>
+		<Node_113 op = "dst_host_diff_srv_rate &gt; 0.13" class = "1" items = "7" errors = "1"/>
+	</Node_111>
+	<Node_114 op = "service = http">
+		<Node_115 op = "hot &lt;= 1">
+			<Node_116 op = "flag = OTH" class = "0" items = "0" errors = "0"/>
+			<Node_117 op = "flag = RSTO" class = "0" items = "4" errors = "1"/>
+			<Node_118 op = "flag = RSTOS0" class = "0" items = "0" errors = "0"/>
+			<Node_119 op = "flag = RSTR" class = "2" items = "8" errors = "4"/>
+			<Node_120 op = "flag = S0" class = "2" items = "22" errors = "3"/>
+			<Node_121 op = "flag = S1" class = "0" items = "6" errors = "1"/>
+			<Node_122 op = "flag = S2" class = "1" items = "1" errors = "0"/>
+			<Node_123 op = "flag = S3" class = "0" items = "2" errors = "1"/>
+			<Node_124 op = "flag = SF" class = "0" items = "7211" errors = "3"/>
+			<Node_125 op = "flag = SH" class = "0" items = "0" errors = "0"/>
+			<Node_126 op = "flag = REJ">
+				<Node_127 op = "dst_host_diff_srv_rate &lt;= 0.02" class = "0" items = "662" errors = "1"/>
+				<Node_128 op = "dst_host_diff_srv_rate &gt; 0.02">
+					<Node_129 op = "dst_host_srv_count &lt;= 15" class = "1" items = "8" errors = "3"/>
+					<Node_130 op = "dst_host_srv_count &gt; 15" class = "0" items = "7" errors = "1"/>
+				</Node_128>
+			</Node_126>
+		</Node_115>
+		<Node_131 op = "hot &gt; 1">
+			<Node_132 op = "src_bytes &gt; 26408" class = "2" items = "204" errors = "1"/>
+			<Node_133 op = "src_bytes &lt;= 26408">
+				<Node_134 op = "root_shell &lt;= 0" class = "0" items = "8" errors = "1"/>
+				<Node_135 op = "root_shell &gt; 0" class = "4" items = "48" errors = "1"/>
+			</Node_133>
+		</Node_131>
+	</Node_114>
+	<Node_136 op = "service = imap4">
+		<Node_137 op = "flag = OTH" class = "4" items = "0" errors = "0"/>
+		<Node_138 op = "flag = REJ" class = "2" items = "3" errors = "1"/>
+		<Node_139 op = "flag = RSTO" class = "4" items = "0" errors = "0"/>
+		<Node_140 op = "flag = RSTOS0" class = "4" items = "0" errors = "0"/>
+		<Node_141 op = "flag = RSTR" class = "4" items = "0" errors = "0"/>
+		<Node_142 op = "flag = S0" class = "2" items = "3" errors = "1"/>
+		<Node_143 op = "flag = S1" class = "4" items = "12" errors = "1"/>
+		<Node_144 op = "flag = S2" class = "4" items = "0" errors = "0"/>
+		<Node_145 op = "flag = S3" class = "4" items = "0" errors = "0"/>
+		<Node_146 op = "flag = SF" class = "4" items = "72" errors = "1"/>
+		<Node_147 op = "flag = SH" class = "4" items = "48" errors = "1"/>
+	</Node_136>
+	<Node_148 op = "service = link">
+		<Node_149 op = "dst_host_same_src_port_rate &lt;= 0" class = "2" items = "16" errors = "1"/>
+		<Node_150 op = "dst_host_same_src_port_rate &gt; 0" class = "1" items = "6" errors = "1"/>
+	</Node_148>
+	<Node_151 op = "service = login">
+		<Node_152 op = "logged_in &lt;= 0" class = "2" items = "7" errors = "1"/>
+		<Node_153 op = "logged_in &gt; 0" class = "4" items = "24" errors = "1"/>
+	</Node_151>
+	<Node_154 op = "service = mtp">
+		<Node_155 op = "dst_host_same_srv_rate &lt;= 0.04" class = "1" items = "5" errors = "3"/>
+		<Node_156 op = "dst_host_same_srv_rate &gt; 0.04" class = "2" items = "8" errors = "1"/>
+	</Node_154>
+	<Node_157 op = "service = netstat">
+		<Node_158 op = "srv_count &lt;= 5" class = "1" items = "5" errors = "2"/>
+		<Node_159 op = "srv_count &gt; 5" class = "2" items = "5" errors = "1"/>
+	</Node_157>
+	<Node_160 op = "service = nntp">
+		<Node_161 op = "dst_host_diff_srv_rate &lt;= 0.07" class = "2" items = "9" errors = "1"/>
+		<Node_162 op = "dst_host_diff_srv_rate &gt; 0.07" class = "1" items = "5" errors = "3"/>
+	</Node_160>
+	<Node_163 op = "service = other">
+		<Node_164 op = "src_bytes &lt;= 1">
+			<Node_165 op = "dst_host_diff_srv_rate &gt; 0.17" class = "1" items = "2214" errors = "1"/>
+			<Node_166 op = "dst_host_diff_srv_rate &lt;= 0.17">
+				<Node_167 op = "flag = OTH" class = "1" items = "0" errors = "0"/>
+				<Node_168 op = "flag = REJ" class = "0" items = "1" errors = "0"/>
+				<Node_169 op = "flag = RSTO" class = "2" items = "1" errors = "0"/>
+				<Node_170 op = "flag = RSTOS0" class = "1" items = "0" errors = "0"/>
+				<Node_171 op = "flag = RSTR" class = "1" items = "0" errors = "0"/>
+				<Node_172 op = "flag = S0" class = "2" items = "5" errors = "1"/>
+				<Node_173 op = "flag = S1" class = "1" items = "0" errors = "0"/>
+				<Node_174 op = "flag = S2" class = "1" items = "0" errors = "0"/>
+				<Node_175 op = "flag = S3" class = "1" items = "0" errors = "0"/>
+				<Node_176 op = "flag = SF" class = "1" items = "19" errors = "1"/>
+				<Node_177 op = "flag = SH" class = "1" items = "0" errors = "0"/>
+			</Node_166>
+		</Node_164>
+		<Node_178 op = "src_bytes &gt; 1">
+			<Node_179 op = "dst_host_diff_srv_rate &gt; 0.3" class = "0" items = "718" errors = "1"/>
+			<Node_180 op = "dst_host_diff_srv_rate &lt;= 0.3">
+				<Node_181 op = "dst_host_diff_srv_rate &lt;= 0.03">
+					<Node_182 op = "src_bytes &lt;= 88" class = "3" items = "121" errors = "2"/>
+					<Node_183 op = "src_bytes &gt; 88" class = "0" items = "5" errors = "1"/>
+				</Node_181>
+				<Node_184 op = "dst_host_diff_srv_rate &gt; 0.03">
+					<Node_185 op = "count &lt;= 1" class = "4" items = "39" errors = "4"/>
+					<Node_186 op = "count &gt; 1" class = "0" items = "10" errors = "1"/>
+				</Node_184>
+			</Node_180>
+		</Node_178>
+	</Node_163>
+	<Node_187 op = "service = pop_3">
+		<Node_188 op = "flag = OTH" class = "0" items = "0" errors = "0"/>
+		<Node_189 op = "flag = REJ" class = "0" items = "0" errors = "0"/>
+		<Node_190 op = "flag = RSTO" class = "2" items = "3" errors = "1"/>
+		<Node_191 op = "flag = RSTOS0" class = "0" items = "0" errors = "0"/>
+		<Node_192 op = "flag = RSTR" class = "1" items = "4" errors = "1"/>
+		<Node_193 op = "flag = S0" class = "2" items = "5" errors = "1"/>
+		<Node_194 op = "flag = S1" class = "0" items = "0" errors = "0"/>
+		<Node_195 op = "flag = S2" class = "0" items = "0" errors = "0"/>
+		<Node_196 op = "flag = S3" class = "0" items = "0" errors = "0"/>
+		<Node_197 op = "flag = SF" class = "0" items = "12" errors = "2"/>
+		<Node_198 op = "flag = SH" class = "1" items = "1" errors = "0"/>
+	</Node_187>
+	<Node_199 op = "service = private">
+		<Node_200 op = "flag = OTH" class = "1" items = "10" errors = "1"/>
+		<Node_201 op = "flag = RSTO" class = "2" items = "9" errors = "1"/>
+		<Node_202 op = "flag = RSTOS0" class = "1" items = "16" errors = "1"/>
+		<Node_203 op = "flag = RSTR" class = "1" items = "691" errors = "1"/>
+		<Node_204 op = "flag = S1" class = "2" items = "0" errors = "0"/>
+		<Node_205 op = "flag = S2" class = "2" items = "0" errors = "0"/>
+		<Node_206 op = "flag = S3" class = "2" items = "0" errors = "0"/>
+		<Node_207 op = "flag = SH" class = "1" items = "146" errors = "1"/>
+		<Node_208 op = "flag = REJ">
+			<Node_209 op = "dst_host_diff_srv_rate &gt; 0.09" class = "1" items = "660" errors = "1"/>
+			<Node_210 op = "dst_host_diff_srv_rate &lt;= 0.09">
+				<Node_211 op = "count &gt; 79" class = "2" items = "1748" errors = "1"/>
+				<Node_212 op = "count &lt;= 79">
+					<Node_213 op = "dst_host_rerror_rate &lt;= 0.92" class = "1" items = "8" errors = "1"/>
+					<Node_214 op = "dst_host_rerror_rate &gt; 0.92" class = "2" items = "19" errors = "1"/>
+				</Node_212>
+			</Node_210>
+		</Node_208>
+		<Node_215 op = "flag = S0">
+			<Node_216 op = "dst_host_serror_rate &lt;= 0.57" class = "1" items = "54" errors = "2"/>
+			<Node_217 op = "dst_host_serror_rate &gt; 0.57" class = "2" items = "7289" errors = "1"/>
+		</Node_215>
+		<Node_218 op = "flag = SF">
+			<Node_219 op = "dst_host_same_src_port_rate &lt;= 0.02">
+				<Node_220 op = "dst_host_same_srv_rate &gt; 0.75" class = "0" items = "922" errors = "1"/>
+				<Node_221 op = "dst_host_same_srv_rate &lt;= 0.75">
+					<Node_222 op = "src_bytes &lt;= 66" class = "2" items = "8" errors = "4"/>
+					<Node_223 op = "src_bytes &gt; 66" class = "0" items = "12" errors = "1"/>
+				</Node_221>
+			</Node_219>
+			<Node_224 op = "dst_host_same_src_port_rate &gt; 0.02">
+				<Node_225 op = "wrong_fragment &gt; 1" class = "2" items = "89" errors = "1"/>
+				<Node_226 op = "wrong_fragment &lt;= 1">
+					<Node_227 op = "dst_bytes &lt;= 50" class = "1" items = "248" errors = "1"/>
+					<Node_228 op = "dst_bytes &gt; 50" class = "0" items = "7" errors = "3"/>
+				</Node_226>
+			</Node_224>
+		</Node_218>
+	</Node_199>
+	<Node_229 op = "service = remote_job">
+		<Node_230 op = "diff_srv_rate &lt;= 0.05" class = "1" items = "5" errors = "3"/>
+		<Node_231 op = "diff_srv_rate &gt; 0.05" class = "2" items = "7" errors = "1"/>
+	</Node_229>
+	<Node_232 op = "service = rje">
+		<Node_233 op = "srv_count &lt;= 2" class = "1" items = "5" errors = "2"/>
+		<Node_234 op = "srv_count &gt; 2" class = "2" items = "12" errors = "1"/>
+	</Node_232>
+	<Node_235 op = "service = smtp">
+		<Node_236 op = "flag = OTH" class = "0" items = "0" errors = "0"/>
+		<Node_237 op = "flag = REJ" class = "0" items = "0" errors = "0"/>
+		<Node_238 op = "flag = RSTO" class = "0" items = "7" errors = "4"/>
+		<Node_239 op = "flag = RSTOS0" class = "0" items = "0" errors = "0"/>
+		<Node_240 op = "flag = RSTR" class = "1" items = "3" errors = "1"/>
+		<Node_241 op = "flag = S0" class = "2" items = "10" errors = "2"/>
+		<Node_242 op = "flag = S1" class = "0" items = "2" errors = "1"/>
+		<Node_243 op = "flag = S2" class = "0" items = "0" errors = "0"/>
+		<Node_244 op = "flag = S3" class = "0" items = "0" errors = "0"/>
+		<Node_245 op = "flag = SF" class = "0" items = "1247" errors = "5"/>
+		<Node_246 op = "flag = SH" class = "0" items = "0" errors = "0"/>
+	</Node_235>
+	<Node_247 op = "service = ssh">
+		<Node_248 op = "same_srv_rate &lt;= 0.06" class = "2" items = "11" errors = "1"/>
+		<Node_249 op = "same_srv_rate &gt; 0.06" class = "1" items = "5" errors = "3"/>
+	</Node_247>
+	<Node_250 op = "service = sunrpc">
+		<Node_251 op = "srv_count &lt;= 1" class = "1" items = "5" errors = "1"/>
+		<Node_252 op = "srv_count &gt; 1" class = "2" items = "6" errors = "1"/>
+	</Node_250>
+	<Node_253 op = "service = supdup">
+		<Node_254 op = "dst_host_same_src_port_rate &lt;= 0.24" class = "2" items = "8" errors = "1"/>
+		<Node_255 op = "dst_host_same_src_port_rate &gt; 0.24" class = "1" items = "5" errors = "1"/>
+	</Node_253>
+	<Node_256 op = "service = systat">
+		<Node_257 op = "count &lt;= 216" class = "1" items = "5" errors = "3"/>
+		<Node_258 op = "count &gt; 216" class = "2" items = "10" errors = "1"/>
+	</Node_256>
+	<Node_259 op = "service = telnet">
+		<Node_260 op = "dst_host_serror_rate &lt;= 0">
+			<Node_261 op = "num_compromised &gt; 6" class = "4" items = "25" errors = "2"/>
+			<Node_262 op = "num_compromised &lt;= 6">
+				<Node_263 op = "duration &lt;= 24">
+					<Node_264 op = "dst_host_diff_srv_rate &gt; 0.32" class = "3" items = "43" errors = "4"/>
+					<Node_265 op = "dst_host_diff_srv_rate &lt;= 0.32">
+						<Node_266 op = "num_failed_logins &lt;= 1" class = "0" items = "9" errors = "3"/>
+						<Node_267 op = "num_failed_logins &gt; 1" class = "4" items = "12" errors = "1"/>
+					</Node_265>
+				</Node_263>
+				<Node_268 op = "duration &gt; 24">
+					<Node_269 op = "dst_bytes &lt;= 18214" class = "3" items = "1160" errors = "1"/>
+					<Node_270 op = "dst_bytes &gt; 18214">
+						<Node_271 op = "num_compromised &lt;= 2" class = "0" items = "10" errors = "1"/>
+						<Node_272 op = "num_compromised &gt; 2" class = "3" items = "80" errors = "1"/>
+					</Node_270>
+				</Node_268>
+			</Node_262>
+		</Node_260>
+		<Node_273 op = "dst_host_serror_rate &gt; 0">
+			<Node_274 op = "flag = OTH" class = "4" items = "0" errors = "0"/>
+			<Node_275 op = "flag = REJ" class = "4" items = "0" errors = "0"/>
+			<Node_276 op = "flag = RSTO" class = "4" items = "481" errors = "2"/>
+			<Node_277 op = "flag = RSTOS0" class = "4" items = "0" errors = "0"/>
+			<Node_278 op = "flag = RSTR" class = "4" items = "36" errors = "1"/>
+			<Node_279 op = "flag = S0" class = "2" items = "20" errors = "2"/>
+			<Node_280 op = "flag = S1" class = "4" items = "0" errors = "0"/>
+			<Node_281 op = "flag = S2" class = "4" items = "0" errors = "0"/>
+			<Node_282 op = "flag = S3" class = "4" items = "24" errors = "1"/>
+			<Node_283 op = "flag = SH" class = "1" items = "1" errors = "0"/>
+			<Node_284 op = "flag = SF">
+				<Node_285 op = "dst_host_diff_srv_rate &lt;= 0.02" class = "4" items = "37" errors = "2"/>
+				<Node_286 op = "dst_host_diff_srv_rate &gt; 0.02" class = "0" items = "9" errors = "3"/>
+			</Node_284>
+		</Node_273>
+	</Node_259>
+	<Node_287 op = "service = time">
+		<Node_288 op = "flag = OTH" class = "2" items = "0" errors = "0"/>
+		<Node_289 op = "flag = REJ" class = "2" items = "0" errors = "0"/>
+		<Node_290 op = "flag = RSTO" class = "2" items = "2" errors = "1"/>
+		<Node_291 op = "flag = RSTOS0" class = "2" items = "0" errors = "0"/>
+		<Node_292 op = "flag = RSTR" class = "2" items = "0" errors = "0"/>
+		<Node_293 op = "flag = S0" class = "2" items = "17" errors = "1"/>
+		<Node_294 op = "flag = S1" class = "2" items = "0" errors = "0"/>
+		<Node_295 op = "flag = S2" class = "2" items = "0" errors = "0"/>
+		<Node_296 op = "flag = S3" class = "2" items = "0" errors = "0"/>
+		<Node_297 op = "flag = SF" class = "0" items = "8" errors = "3"/>
+		<Node_298 op = "flag = SH" class = "2" items = "0" errors = "0"/>
+	</Node_287>
+	<Node_299 op = "service = vmnet">
+		<Node_300 op = "srv_count &lt;= 2" class = "1" items = "7" errors = "1"/>
+		<Node_301 op = "srv_count &gt; 2" class = "2" items = "9" errors = "1"/>
+	</Node_299>
+	<Node_302 op = "service = whois">
+		<Node_303 op = "serror_rate &lt;= 0.5" class = "1" items = "5" errors = "2"/>
+		<Node_304 op = "serror_rate &gt; 0.5" class = "2" items = "11" errors = "1"/>
+	</Node_302>
+</XML>

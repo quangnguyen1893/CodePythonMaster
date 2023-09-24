@@ -33,10 +33,11 @@ min_value = df.min().min()
 df[df < 0] = df[df < 0] - min_value
 
 # Tính tổng của mỗi cột
-column_sums = df.sum()
-
+# column_sums = df.sum()
+column_sums = df.iloc[:, -1]
+label = column_sums.value_counts()
 # Vẽ pie chart
-plt.pie(column_sums, labels=df.columns, autopct='%1.1f%%', startangle=140)
+plt.pie(label, labels=label.index, autopct='%1.1f%%', startangle=140)
 
 # Đặt tiêu đề cho biểu đồ
 plt.title('Pie Chart of Data')
