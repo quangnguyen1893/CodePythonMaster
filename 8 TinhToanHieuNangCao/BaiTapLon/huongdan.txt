@@ -1,0 +1,5 @@
+mpicc parrallel_dijstra.c -o para
+mpirun -np 2 para
+
+gcc -o dij serial_dijstra.c
+./dij
