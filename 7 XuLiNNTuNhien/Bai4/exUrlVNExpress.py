@@ -21,13 +21,13 @@ if response.status_code == 200:
     articles_info = []
 
     # Kiểm tra xem tệp urls.txt có tồn tại hay không
-    if not os.path.exists("urls.txt"):
-        with open("urls.txt", "w", encoding="utf-8") as urls_file:
+    if not os.path.exists("/home/quang/CodePythonMaster/7 XuLiNNTuNhien/Bai4/urlsVNExpress.txt"):
+        with open("/home/quang/CodePythonMaster/7 XuLiNNTuNhien/Bai4/urlsVNExpress.txt", "w", encoding="utf-8") as urls_file:
             # Tệp không tồn tại, viết dòng mô tả nếu cần
             urls_file.write("Các URL của bài viết:\n")
 
     # Mở tệp urls.txt để viết các URL vào đó
-    with open("urls.txt", "a", encoding="utf-8") as urls_file:
+    with open("/home/quang/CodePythonMaster/7 XuLiNNTuNhien/Bai4/urlsVNExpress.txt", "a", encoding="utf-8") as urls_file:
         for link in article_links:
             article_url = link.a['href']
             article_title = link.a.text
@@ -36,7 +36,7 @@ if response.status_code == 200:
             # Viết URL vào tệp urls.txt
             urls_file.write(article_url + "\n")
         
-    print("Các URL đã được ghi vào tệp urls.txt.")
+    print("Các URL đã được ghi vào tệp urlsVNExpress.txt.")
 
 else:
     print("Lỗi: Không thể truy cập trang web")

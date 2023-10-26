@@ -8,8 +8,8 @@ base_url = "https://vnexpress.net"  # Thay bằng URL thực tế
 category_url = base_url + "/giao-duc"  # Thay bằng URL chuyên mục thực tế
 
 # Tạo thư mục 'giaoducvnexpress' nếu nó chưa tồn tại
-if not os.path.exists("d:/Master/Master-Code/CodePythonMaster/7 XuLiNNTuNhien/Bai4/giaoducvnexpress"):
-    os.makedirs("d:/Master/Master-Code/CodePythonMaster/7 XuLiNNTuNhien/Bai4/giaoducvnexpress")
+if not os.path.exists("/home/quang/CodePythonMaster/7 XuLiNNTuNhien/Bai4/giaoducvnexpress"):
+    os.makedirs("/home/quang/CodePythonMaster/7 XuLiNNTuNhien/Bai4/giaoducvnexpress")
 
 # Gửi yêu cầu HTTP để lấy trang web
 response = requests.get(category_url)
@@ -39,14 +39,16 @@ if response.status_code == 200:
         article_response = requests.get(article_url)
         if article_response.status_code == 200:
             article_soup = BeautifulSoup(article_response.text, "html.parser")
+            article_descript = article_soup.find("p", class_="description").get_text() 
             article_content = article_soup.find("article", class_="fck_detail").get_text()  # Thay thẻ và class bằng thực tế
-            filename = f"d:/Master/Master-Code/CodePythonMaster/7 XuLiNNTuNhien/Bai4/giaoducvnexpress/article_{i}.txt"
-            file_path = os.path.join("d:/Master/Master-Code/CodePythonMaster/7 XuLiNNTuNhien/Bai4/giaoducvnexpress", f"article_{i}.txt")
+            filename = f"/home/quang/CodePythonMaster/7 XuLiNNTuNhien/Bai4/giaoducvnexpress/article_{i}.txt"
+            file_path = os.path.join("/home/quang/CodePythonMaster/7 XuLiNNTuNhien/Bai4/giaoducvnexpress", f"article_{i}.txt")
 
             # Tạo hoặc mở tệp tin .txt trong thư mục 'giaoducvnexpress' và ghi nội dung vào đó
             with open(file_path, "w", encoding="utf-8") as file:
-                file.write(f"Tiêu đề: {article_title}\n\n")
-                file.write(f"Nội dung:\n{article_content}")
+                file.write(f"{article_title}\n")
+                file.write(f"{article_descript}\n")
+                file.write(f"{article_content}")
 
             print(f"Bài {i} đã được lưu vào tệp {file_path}")
 
